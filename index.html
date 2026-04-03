@@ -4,42 +4,44 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <title>Tasmania Motorcycle Practice DKT</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%270.9em%27 font-size=%2780%27%3E%F0%9F%8F%8D%EF%B8%8F%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--teal:#0d9488;--tealL:#14b8a6;--amber:#f59e0b;--amberD:#d97706;--sky:#e0f2fe;--skyD:#0ea5e9;--skyDD:#0284c7;--green:#10b981;--red:#ef4444;--bg:#f0f9ff;--card:#fff;--text:#1e293b;--textM:#64748b;--textL:#94a3b8;--border:#e2e8f0;--radius:12px;--compC:#f97316;--traffC:#ea580c;--roadC:#2563eb;--safeC:#7c3aed;--motoC:#059669}
-body{font-family:'Nunito',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;padding-bottom:70px}
-.header{background:linear-gradient(135deg,var(--skyD),var(--skyDD));color:#fff;text-align:center;padding:16px 16px 20px;position:relative}
+:root{--teal:#0d9488;--tealL:#14b8a6;--amber:#f59e0b;--amberD:#d97706;--skyD:#0ea5e9;--skyDD:#0284c7;--green:#10b981;--red:#ef4444;--bg:#f0f9ff;--card:#fff;--text:#1e293b;--textM:#64748b;--textL:#94a3b8;--border:#e2e8f0;--radius:12px;--compC:#f97316;--traffC:#ea580c;--roadC:#2563eb;--safeC:#7c3aed;--motoC:#059669}
+body{font-family:'Nunito',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;padding-bottom:50px}
+.header{background:linear-gradient(135deg,var(--skyD),var(--skyDD));color:#fff;text-align:center;padding:14px 16px 18px;position:relative}
 .header h1{font-size:24px;font-weight:900;letter-spacing:-0.5px;margin-top:4px}
 .header h1 span{color:var(--amber)}.header-sub{margin-top:4px;opacity:0.85;font-size:13px}
 .header-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
-.header-btn{background:#fff2;border:1px solid #fff3;border-radius:20px;padding:4px 10px;cursor:pointer;display:flex;align-items:center;gap:4px;color:#fff;font-size:11px;font-weight:600;text-decoration:none}.header-btn:hover{background:#fff3}
+.header-btn{background:#fff2;border:1px solid #fff3;border-radius:20px;padding:4px 10px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;color:#fff;font-size:11px;font-weight:600;text-decoration:none}.header-btn:hover{background:#fff3}
 .logo-placeholder{display:block;margin:0 auto 8px;max-height:40px;max-width:200px}
 .container{max-width:640px;margin:0 auto;padding:0 16px 20px}
 .card{background:var(--card);border-radius:var(--radius);box-shadow:0 1px 3px #0001,0 4px 12px #0001;padding:24px 20px;margin:20px 0}
 .btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 32px;border-radius:var(--radius);border:none;font-family:inherit;font-size:16px;font-weight:700;cursor:pointer;transition:all 0.2s}
 .btn-primary{background:var(--amber);color:#fff;width:100%}.btn-primary:hover{background:var(--amberD)}
-.btn-outline{background:#fff;color:var(--text);border:2px solid var(--border)}.btn-outline:hover{border-color:var(--textL)}
+.btn-outline{background:var(--card);color:var(--text);border:2px solid var(--border)}.btn-outline:hover{border-color:var(--textL)}
 .btn-sm{padding:8px 16px;font-size:13px}.btn:disabled{opacity:0.4;cursor:default}
 .welcome-info{font-size:15px;color:var(--textM);line-height:1.6;margin:12px 0 20px}
 .pass-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border)}.pass-row:last-child{border-bottom:none}
 .pass-dot{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:8px}
 .pass-label{font-weight:600;font-size:15px;display:flex;align-items:center}.pass-val{font-weight:700;color:var(--textM);font-size:14px}
-.quiz-bar{background:#fff;border-bottom:2px solid var(--border);padding:10px 16px;position:sticky;top:0;z-index:20}
-.quiz-bar-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
-.quiz-section{font-weight:700;font-size:14px}.quiz-total{font-weight:600;font-size:13px;color:var(--textM)}
+.quiz-bar{background:var(--card);border-bottom:2px solid var(--border);padding:10px 16px;position:sticky;top:0;z-index:20;max-width:640px;margin:0 auto}
+.quiz-bar-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;gap:8px}
+.quiz-section{font-weight:800;font-size:15px}
+.quiz-total{font-weight:700;font-size:14px;color:var(--textM)}
 .quiz-tools{display:flex;gap:8px;align-items:center}
-.quiz-tool-btn{background:none;border:1px solid var(--border);border-radius:6px;padding:3px 8px;cursor:pointer;font-size:11px;color:var(--textM);font-family:inherit;font-weight:600}.quiz-tool-btn:hover{background:#f1f5f9}
-.progress{height:6px;background:var(--border);border-radius:3px;overflow:hidden}
+.quiz-tool-btn{background:none;border:1px solid var(--border);border-radius:6px;padding:3px 8px;cursor:pointer;font-size:11px;color:var(--textM);font-family:inherit;font-weight:600}.quiz-tool-btn:hover{background:var(--bg)}
+.progress{height:6px;background:var(--border);border-radius:3px;overflow:hidden;max-width:640px;margin:0 auto}
 .progress-fill{height:100%;background:linear-gradient(90deg,var(--teal),var(--tealL));border-radius:3px;transition:width 0.4s ease}
 .q-num{width:38px;height:38px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:800;flex-shrink:0;color:#fff}
 .q-head{display:flex;gap:12px;align-items:flex-start;margin-bottom:16px}.q-text{font-size:18px;font-weight:700;line-height:1.4}
 .q-img-wrap{background:#e8f5e9;border-radius:8px;overflow:hidden;margin-bottom:16px;text-align:center;min-height:60px;display:flex;align-items:center;justify-content:center}
 .q-img-wrap img{max-width:100%;height:auto;display:block}.q-img-fallback{padding:16px;color:var(--textL);font-size:13px;font-style:italic}
-.opt{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;border:2px solid var(--border);border-radius:var(--radius);margin-bottom:8px;cursor:pointer;transition:all 0.15s;background:#fff}
-.opt:hover{border-color:var(--textL);background:#fafafa}.opt.selected{border-color:var(--teal);background:#f0fdfa}
-.opt.correct{border-color:var(--green);background:#ecfdf5}.opt.wrong{border-color:var(--red);background:#fef2f2}.opt.show-correct{border-color:var(--green);background:#ecfdf5}
+.opt{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;border:2px solid var(--border);border-radius:var(--radius);margin-bottom:8px;cursor:pointer;transition:all 0.15s;background:var(--card)}
+.opt:hover{border-color:var(--textL)}.opt.selected{border-color:var(--teal);background:#f0fdfa}
+.opt.correct,.opt.show-correct{border-color:var(--green);background:#ecfdf5}.opt.wrong{border-color:var(--red);background:#fef2f2}
 .opt-radio{width:22px;height:22px;border-radius:50%;border:2px solid var(--border);flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;transition:all 0.15s}
 .opt.selected .opt-radio{border-color:var(--teal);background:var(--teal)}.opt.selected .opt-radio::after{content:'';width:8px;height:8px;border-radius:50%;background:#fff}
 .opt.correct .opt-radio{border-color:var(--green);background:var(--green)}.opt.correct .opt-radio::after{content:'\2714';color:#fff;font-size:12px}
@@ -48,34 +50,35 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--bg);color:var(--
 .feedback{padding:16px;border-radius:var(--radius);margin:12px 0 16px;line-height:1.5}
 .feedback.correct{background:#ecfdf5;border:2px solid #86efac;color:#065f46}.feedback.wrong{background:#fef2f2;border:2px solid #fca5a5;color:#991b1b}
 .feedback-title{font-weight:800;font-size:16px;margin-bottom:4px}.feedback-exp{font-size:14px;opacity:0.9}
-.nav-btns{display:flex;gap:12px;margin-top:16px}.nav-btns .btn{flex:1}
+.nav-btns{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}.nav-btns .btn{flex:1;min-width:0}
 .section-result{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-radius:8px;margin-bottom:8px;border:1px solid var(--border)}
 .section-result.pass{background:#f0fdf4}.section-result.fail{background:#fef2f2}
 .sr-left{display:flex;align-items:center;gap:10px}.sr-icon{font-size:18px}.sr-name{font-weight:700;font-size:15px}.sr-need{font-size:12px;color:var(--textM)}
 .sr-score{font-weight:800;font-size:18px}
 .review-item{border:1px solid var(--border);border-radius:var(--radius);margin-bottom:8px;overflow:hidden}
-.review-header{display:flex;align-items:center;gap:10px;padding:14px 16px;cursor:pointer;background:#fff;transition:background 0.15s}.review-header:hover{background:#f8fafc}
+.review-header{display:flex;align-items:center;gap:10px;padding:14px 16px;cursor:pointer;background:var(--card);transition:background 0.15s}.review-header:hover{background:var(--bg)}
 .review-num{font-weight:800;color:var(--textM);min-width:28px;font-size:15px}.review-q{flex:1;font-size:14px;font-weight:600;line-height:1.35}
 .review-icon{font-size:16px;margin-left:auto;padding-left:8px;display:flex;gap:6px;flex-shrink:0}
 .review-body{padding:0 16px 16px;display:none}.review-item.open .review-body{display:block}
 .review-chevron{transition:transform 0.2s;color:var(--textL);font-size:16px}.review-item.open .review-chevron{transform:rotate(180deg)}
-.history-item{padding:14px 16px;border-bottom:1px solid var(--border);cursor:pointer;transition:background 0.15s}.history-item:hover{background:#f8fafc}.history-item:last-child{border-bottom:none}
+.history-item{padding:14px 16px;border-bottom:1px solid var(--border);cursor:pointer;transition:background 0.15s}.history-item:hover{background:var(--bg)}.history-item:last-child{border-bottom:none}
 .history-top{display:flex;justify-content:space-between;align-items:center}.history-date{font-weight:700}
 .history-pass{color:var(--green);font-weight:700}.history-fail{color:var(--red);font-weight:700}
 .history-detail{font-size:12px;color:var(--textM);margin-top:4px}.history-tap{font-size:11px;color:var(--textL);margin-top:2px}
-.footer-strip{position:fixed;bottom:0;left:0;right:0;height:60px;background:linear-gradient(0deg,#1a3a2a 0%,#2d5a3f 40%,#4a8c6a 80%,transparent 100%);z-index:5;pointer-events:none;overflow:hidden}
-.footer-road{position:absolute;bottom:18px;left:0;right:0;height:3px;background:repeating-linear-gradient(90deg,#fff6 0px,#fff6 20px,transparent 20px,transparent 40px)}
-.footer-moto{position:absolute;bottom:22px;right:15%;font-size:28px;transform:scaleX(-1)}
+.footer-strip{position:fixed;bottom:0;left:0;right:0;height:44px;background:linear-gradient(0deg,#1a3a2a 0%,#2d5a3f 50%,#4a8c6a 90%,transparent 100%);z-index:5;pointer-events:none;overflow:hidden}
+.footer-road{position:absolute;bottom:12px;left:0;right:0;height:2px;background:repeating-linear-gradient(90deg,#fff5 0px,#fff5 16px,transparent 16px,transparent 32px)}
+.footer-moto{position:absolute;bottom:14px;left:12%;font-size:22px;transform:scaleX(-1)}
 body.dark{--bg:#0f172a;--card:#1e293b;--text:#f1f5f9;--textM:#94a3b8;--textL:#64748b;--border:#334155}
 body.dark .header{background:linear-gradient(135deg,#0f172a,#1e293b);border-bottom:1px solid #334155}
-body.dark .quiz-bar{background:#1e293b;border-color:#334155}
-body.dark .opt{background:#1e293b;border-color:#334155}.dark .opt:hover{background:#263548;border-color:#475569}.dark .opt.selected{background:#0d3331;border-color:var(--teal)}
-body.dark .review-header{background:#1e293b}.dark .review-header:hover{background:#263548}
-body.dark .q-img-wrap{background:#1a3a2a}.dark .quiz-tool-btn{border-color:#475569;color:#94a3b8}.dark .quiz-tool-btn:hover{background:#334155}
-body.dark .history-item:hover{background:#263548}
-body.dark .footer-strip{background:linear-gradient(0deg,#0a1a10 0%,#1a3a2a 40%,#2d5a3f 80%,transparent 100%)}
-.mt-12{margin-top:12px}.mt-20{margin-top:20px}.mb-8{margin-bottom:8px}.mb-16{margin-bottom:16px}.text-center{text-align:center}
+body.dark .footer-strip{background:linear-gradient(0deg,#0a1a10 0%,#1a3a2a 50%,#2d5a3f 90%,transparent 100%)}
+.mt-12{margin-top:12px}.mt-16{margin-top:16px}.mt-20{margin-top:20px}.mb-8{margin-bottom:8px}.mb-16{margin-bottom:16px}.text-center{text-align:center}
 @media(min-width:500px){.q-text{font-size:20px}.opt-text{font-size:16px}}
+@media(min-width:768px){
+  .quiz-bar{padding:12px calc((100% - 640px)/2 + 16px)}
+  .progress{padding:0 calc((100% - 640px)/2 + 16px)}
+  .quiz-section{font-size:16px}.quiz-total{font-size:15px}
+  .footer-moto{font-size:32px;left:10%}
+}
 </style>
 </head>
 <body>
@@ -160,13 +163,13 @@ const TRAF=[{id:"g20",q:"Which of the following statements is true?",img:null,op
 {id:"g41",q:"What is the minimum continuous period that you must hold a novice car learner licence before progressing to a P1 licence?",img:null,opts:["3 continuous months.","6 continuous months.","9 continuous months.","12 continuous months."],c:3,exp:"In Tasmania, learner drivers must hold their licence for a minimum continuous period of 12 months before taking the P1 assessment."}];
 const ROAD=[{id:"g42",q:"You are driving on a divided road and see an emergency vehicle on the other side of the road with lights flashing. There is no dividing barrier. What must you do?",img:"g42",opts:["Slow down to 10km/h below the speed limit.","Stop and offer assistance.","Slow down to 40km/h as you pass.","No need to slow down as it is on the other side for the road."],c:2,exp:"The law requires drivers to slow down to 40 km/h when passing a stationary or slow-moving emergency/response vehicle with flashing lights, even on the opposite side of an undivided road."},
 {id:"g43",q:"When driving at night, you must dip your headlights -",img:"g43",opts:["Only when another vehicle is approaching you from the opposite direction and is within 50 metres.","Within 200 metres when approaching another vehicle from either the opposite direction or from behind.","Within 3 metres when approaching another vehicle from either the opposite direction or from behind.","You never need to dip your headlights."],c:1,exp:"High beams must be dipped within 200 metres to prevent blinding oncoming drivers or drivers you are following."},
-{id:"g44",q:"At a railway crossing with red lights flashing, you must-",img:"g44",opts:["Slow down and cross with care.","Stop and wait until the red lights stop flashing and the train passes before driving on.","Speed up and quickly go through the crossing before the train passes.","\\[Blank/Missing in source\\]"],c:1,exp:"Flashing red lights at a level crossing indicate a train is approaching; you must stop and wait until the lights completely cease flashing."},
+{id:"g44",q:"At a railway crossing with red lights flashing, you must-",img:"g44",opts:["Slow down and cross with care.","Stop and wait until the red lights stop flashing and the train passes before driving on.","Speed up and quickly go through the crossing before the train passes."],c:1,exp:"Flashing red lights at a level crossing indicate a train is approaching; you must stop and wait until the lights completely cease flashing."},
 {id:"g45",q:"An emergency vehicle (e.g. ambulance or fire engine) is sounding its siren and quickly approaching your vehicle from behind. You must-",img:"g45",opts:["Immediately turn on your vehicles hazard lights.","Immediately sound your horn to warn other vehicles of the approaching emergency vehicle.","Immediately accelerate.","Give way by either pulling over to the side of the road or moving into another lane to enable the emergency vehicle to pass."],c:3,exp:"Drivers must safely clear the path for an active emergency vehicle by moving out of its way and stopping if necessary."},
 {id:"g46",q:"You are driving Car A. You are approaching an uncontrolled intersection and want to turn left. There is a cyclist in front of you. You must-",img:"g46",opts:["You are approaching an uncontrolled intersection and want to turn left. There is a cyclist in front of you. You must- A. Sound your horn to warn the cyclist that you are behind and the cyclist must give way.","Allow the cyclist to go through the intersection safely then turn left at the intersection.","Accelerate and pass the cyclist then turn left in front of the cyclist.","Accelerate, indicate and sound your horn to warn the cyclist then turn left in front of the cyclist."],c:1,exp:"Cutting off a cyclist by turning left immediately in front of them is illegal and dangerous; you must wait until they clear the intersection."},
 {id:"g47",q:"Who, apart from cyclists, can use a bicycle path?",img:null,opts:["Any vehicle.","If signs don’t say otherwise, a person in a wheelchair or pushing a wheelchair or a person using roller blades or roller-skates.","Motorcyclists.","Courier vans."],c:1,exp:"Shared mobility devices like wheelchairs and roller skates are generally permitted on bicycle paths unless specifically signposted otherwise."},
 {id:"g48",q:"You hold a novice learner licence, when can you use a mobile phone while sitting in the driver’s seat?",img:null,opts:["At any time if using hands free.","At any time, when the phone call is less than 5 minutes long.","When you are stopped at traffic lights or stopped in traffic.","Only when your vehicle is parked."],c:3,exp:"Learner and P1 drivers face a total ban on mobile phone use; the vehicle must be legally parked to use a phone."},
-{id:"g49",q:"You can do a U-turn at an intersection with traffic lights -",img:"g49",opts:["Between 9 p.m. and 6 a.m.","Only when there is \\\"U-turn permitted\\\" sign.","If there is no oncoming traffic.","If the traffic lights are green."],c:1,exp:"U-turns at signalised intersections are strictly prohibited unless explicitly allowed by a ’U-turn permitted’ sign."},
-{id:"g50",q:"You are driving Car A. You are stopped at a children’s crossing displaying an orange flag. You can drive on when",img:null,opts:["You are stopped at a children’s crossing displaying an orange flag. You can drive on when A. The pedestrians have left the crossing.","The pedestrians are not in your car’s path.","The pedestrians are about to step onto the crossing.","\\[Blank/Missing in source\\]"],c:0,exp:"At a flagged children’s crossing, you must remain stopped until all pedestrians have completely cleared the crossing."},
+{id:"g49",q:"You can do a U-turn at an intersection with traffic lights -",img:"g49",opts:["Between 9 p.m. and 6 a.m.","Only when there is “U-turn permitted“ sign.","If there is no oncoming traffic.","If the traffic lights are green."],c:1,exp:"U-turns at signalised intersections are strictly prohibited unless explicitly allowed by a ’U-turn permitted’ sign."},
+{id:"g50",q:"You are driving Car A. You are stopped at a children’s crossing displaying an orange flag. You can drive on when",img:null,opts:["The pedestrians have left the crossing.","The pedestrians are not in your car’s path.","The pedestrians are about to step onto the crossing."],c:0,exp:"At a flagged children’s crossing, you must remain stopped until all pedestrians have completely cleared the crossing."},
 {id:"g51",q:"You are driving Car A. Car B In front of you has stopped at a pedestrian crossing, you must -",img:"g51",opts:["Car B In front of you has stopped at a pedestrian crossing, you must - A. Overtake Car B.","Overtake with care if satisfied there is no pedestrian on the crossing.","Stop behind Car B.","Indicate and sound your horn to warn Car B and any pedestrians that you are overtaking."],c:2,exp:"It is illegal to overtake a vehicle that has stopped at a pedestrian crossing to yield to pedestrians."},
 {id:"g52",q:"As a P1 licence holder, what is the maximum speed you can drive on a road with this sign? (110 sign)",img:"g52",opts:["80 km/h.","90 km/h.","100 km/h.","110 km/h."],c:1,exp:"P1 provisional drivers in Tasmania are restricted to a maximum speed limit of 90 km/h."},
 {id:"g53",q:"This sign means? (60 sign)",img:"g53",opts:["You must travel more than 60 km/h","You must not travel more than 60 km/h.","You are on Highway number 60.","Children’s crossing, slow down."],c:1,exp:"A speed restriction sign denotes the absolute maximum legal speed limit for that section of road."},
@@ -186,7 +189,7 @@ const ROAD=[{id:"g42",q:"You are driving on a divided road and see an emergency 
 {id:"g67",q:"You are driving Car A. In what direction must you travel?",img:"g67",opts:["In what direction must you travel? A. Turn left or go straight ahead.","Turn left only when there is traffic in the other lane.","Go straight ahead.","Turn left."],c:0,exp:"Lane arrows dictate permitted manoeuvres; multiple arrows indicate multiple legal paths."},
 {id:"g68",q:"You are driving Car A and you want to merge with another line of traffic travelling in the same direction (there are no marked lanes)",img:"g68",opts:["You must give way to Car B as it is on your right","You have right of way, as you are travelling ahead of Cars B and","C. You have to give way to Cars B and C as they are to your right.","You have to give way to cars B and C as you are travelling ahead of them."],c:1,exp:"When lines of traffic merge without lane lines ending, the vehicle trailing must yield to the vehicle ahead."},
 {id:"g69",q:"You are driving Car A in a 60 km/h speed zone. Your lane ends and you must merge with another lane of traffic travelling in the same direction (there are line markings) -",img:"g69",opts:["Cars B and C have to give way to you as they are in the right lane","You have to give way to Cars B and C as you are moving into their lane.","Cars B and C have to give way to you as you are travelling ahead of them.","You have to give way to Car B as it is travelling ahead of you."],c:1,exp:"If your marked lane ends and you cross a broken line to merge, you must give way to traffic already in the continuing lane."},
-{id:"g70",q:"You are driving Car A in a 100 km/hr speed zone. Your lane has come to an end and you want to merge into another lane of traffic. There are road markings.",img:"g70",opts:["You must give way to Car B as you are moving into the lane it is travelling in.","Car B has to give way to you as you are travelling ahead of it.","Car B has to give way to you as it is in the right lane.","\\[Blank/Missing in source\\]"],c:0,exp:"Crossing lane lines to merge means you are entering another lane and must yield to existing traffic."},
+{id:"g70",q:"You are driving Car A in a 100 km/hr speed zone. Your lane has come to an end and you want to merge into another lane of traffic. There are road markings.",img:"g70",opts:["You must give way to Car B as you are moving into the lane it is travelling in.","Car B has to give way to you as you are travelling ahead of it.","Car B has to give way to you as it is in the right lane."],c:0,exp:"Crossing lane lines to merge means you are entering another lane and must yield to existing traffic."},
 {id:"g71",q:"You are driving towards a large roundabout that has multi-lanes. At the roundabout, you intend to turn off more than halfway around the roundabout. What signals must you give?",img:null,opts:["On approach to the roundabout, give a right signal and, just before you the exit road, give a left signal.","Only give a right signal on the approach to the roundabout, as no other signal is required.","Providing it is safe, a signal is not required at all.","On approach to the roundabout, give a left signal then a right signal when turning off."],c:0,exp:"Approaching a right turn requires a right indicator; you must then signal left just before exiting the roundabout if practicable."},
 {id:"g72",q:"You are driving a motor vehicle towards a marked multi-laned roundabout. You want to travel straight on through the roundabout to the road opposite. What lane must you take?",img:"g72",opts:["You must enter and leave the roundabout in the left lane.","You may enter and leave the roundabout in either lane.","You must enter and leave the roundabout in the right lane.","Move to the left lane before the roundabout then leave by the right lane."],c:1,exp:"Travelling straight through allows use of either lane unless specific arrows direct otherwise."},
 {id:"g73",q:"You are driving Car A. You want to move from the side of the road into a line of traffic, you must indicate -",img:null,opts:["You want to move from the side of the road into a line of traffic, you must indicate - A. For one second and give way to all traffic","For 3 seconds and give way to all traffic","For 5 seconds and give way to all traffic","Only if there is traffic coming"],c:2,exp:"You must signal for at least 5 seconds before moving off from a stationary position at the side of the road."},
@@ -200,13 +203,13 @@ const ROAD=[{id:"g42",q:"You are driving on a divided road and see an emergency 
 {id:"g81",q:"As a driver, you must wear a seatbelt -",img:null,opts:["When travelling over 60 km/h.","When convenient.","At all times.","When the vehicle is moving or stationary in traffic, unless reversing."],c:3,exp:"Drivers must remain buckled unless actively performing a reversing manoeuvre."},
 {id:"g82",q:"What is the maximum speed a leaner driver can drive in a 100 km/h speed zone?",img:"g82",opts:["110 km/h","90 km/h","100 km/h","80 km/h"],c:1,exp:"Learner drivers have an absolute maximum speed limit of 90 km/h."},
 {id:"g83",q:"As a P1 licence holder, what is the maximum speed you can drive on a road with this sign? (100 km/h sign)",img:"g83",opts:["110 km/h","90 km/h","100 km/h","80 km/h"],c:1,exp:"P1 drivers are legally capped at 90 km/h irrespective of higher road speed limits."},
-{id:"g84",q:"What is the minimum recommended distance to leave between your vehicle and a cyclist when passing in a 50 km/h zone?",img:null,opts:["1 metre","2 metres","No distance","\\[Blank\\]"],c:0,exp:"In Tasmania, drivers must leave at least 1 metre when passing a cyclist in zones up to 60 km/h, and 1.5 metres in higher speed zones."},
+{id:"g84",q:"What is the minimum recommended distance to leave between your vehicle and a cyclist when passing in a 50 km/h zone?",img:null,opts:["1 metre","2 metres","No distance"],c:0,exp:"In Tasmania, drivers must leave at least 1 metre when passing a cyclist in zones up to 60 km/h, and 1.5 metres in higher speed zones."},
 {id:"g85",q:"This sign means? (45 km/h warning sign)",img:"g85",opts:["45 km/h is the advised maximum speed to travel around the curve ahead under good driving conditions.","Winding road for next 45 kilometres.","45 km/h is the legal maximum speed limit for the curve ahead.","You can only turn right for the next 45 km."],c:0,exp:"Yellow warning signs indicate the recommended safe speed for the upcoming hazard under ideal conditions."},
 {id:"g86",q:"This sign means?",img:"g86",opts:["Road incomplete.","Divided road ahead.","Incomplete roundabout ahead.","Modified ’T’ intersection ahead."],c:1,exp:"A Y-shaped symbol on a warning sign indicates that a divided road begins ahead."},
 {id:"g87",q:"This sign means?",img:"g87",opts:["Steep hill ahead.","Unmade road ahead.","Slippery road ahead.","Winding road ahead"],c:3,exp:"The symbol of a car with skidding tracks indicates that the road surface ahead may be slippery when wet."},
 {id:"g88",q:"This sign means?",img:"g88",opts:["Hairpin bend to the right.","’U’ turns allowed.","You must turn right.","Road ends - turn around"],c:0,exp:"A sharp, U-shaped arrow pointing right warns drivers of an impending hairpin bend to the right."},
 {id:"g89",q:"This sign means?",img:"g89",opts:["Helicopter landing pad ahead.","Ambulance Station ahead.","Hospital emergency entrance ahead.","A crossroad intersection ahead."],c:3,exp:"A black cross symbol on a diamond warning sign alerts drivers to a crossroad intersection ahead."},
-{id:"g90",q:"This sign means?",img:"g90",opts:["Left lane closed, right lane open.","Left lane open, right lane closed.","Trucks must use right lane.","\\\"T\\\" intersection ahead."],c:1,exp:"This sign visually depicts the right lane ending, requiring traffic to merge safely into the continuing left lane."},
+{id:"g90",q:"This sign means?",img:"g90",opts:["Left lane closed, right lane open.","Left lane open, right lane closed.","Trucks must use right lane.","“T“ intersection ahead."],c:1,exp:"This sign visually depicts the right lane ending, requiring traffic to merge safely into the continuing left lane."},
 {id:"g91",q:"This sign means?",img:"g91",opts:["Bends ahead.","Road slopes ahead.","Slippery surface ahead.","Steep winding road ahead."],c:2,exp:"A winding or serpentine arrow warns drivers of a series of curves or bends in the road ahead."},
 {id:"g92",q:"This sign means?",img:"g92",opts:["Do not pass another vehicle.","Stop and give way to all traffic and pedestrians.","Do not drive beyond this sign.","Allowed to enter."],c:2,exp:"A ’No Entry’ sign legally prohibits all vehicles from travelling past the sign into that road or area."},
 {id:"g93",q:"This sign means?",img:"g93",opts:["No right turn.","One way traffic.","Left turn only sign.","Keep to the left of the sign."],c:3,exp:"A ’Keep Left’ sign directs drivers to pass to the left side of a traffic island, median strip, or road obstacle."},
@@ -268,11 +271,11 @@ const MOTO=[{id:"m1",q:"What is the legal maximum speed for a learner motorcycle
 {id:"m14",q:"Which of the following statements is true?",img:null,opts:["A motorcycle rider can edge filter at a traffic controlled intersection","A motorcycle rider cannot lane filter at a speed more than 30 km/h","A motorcycle rider can lane filter in a school zone","All of the above"],c:1,exp:"Lane filtering must not exceed 30 km/h. It is prohibited in school zones, and edge filtering is not allowed."}];
 
 const SECS=[
-  {name:"Compulsory",req:7,tot:7,color:"var(--compC)",hex:"#f97316",pool:COMP},
-  {name:"Traffic Rules",req:2,tot:3,color:"var(--traffC)",hex:"#ea580c",pool:TRAF},
-  {name:"Road Rules",req:12,tot:15,color:"var(--roadC)",hex:"#2563eb",pool:ROAD},
-  {name:"Road Safety",req:2,tot:3,color:"var(--safeC)",hex:"#7c3aed",pool:SAFE},
-  {name:"Motorcycle",req:6,tot:7,color:"var(--motoC)",hex:"#059669",pool:MOTO},
+  {name:"Compulsory",req:7,tot:7,color:"var(--compC)",pool:COMP},
+  {name:"Traffic Rules",req:2,tot:3,color:"var(--traffC)",pool:TRAF},
+  {name:"Road Rules",req:12,tot:15,color:"var(--roadC)",pool:ROAD},
+  {name:"Road Safety",req:2,tot:3,color:"var(--safeC)",pool:SAFE},
+  {name:"Motorcycle",req:6,tot:7,color:"var(--motoC)",pool:MOTO},
 ];
 const L=["A","B","C","D"];
 let S={scr:"welcome",qs:[],cur:0,ans:{},fb:false,dk:localStorage.getItem("dkt-dark")==="1"};
@@ -287,74 +290,77 @@ function saveHist(qs,ans){const res=getRes(qs,ans);const ap=res.every(r=>r.passe
 function saveProg(){localStorage.setItem("dkt-progress",JSON.stringify({qs:S.qs,cur:S.cur,ans:S.ans}));}
 function loadProg(){try{return JSON.parse(localStorage.getItem("dkt-progress"));}catch{return null;}}
 function clearProg(){localStorage.removeItem("dkt-progress");}
-function imgPath(id){return "images/q"+id+".png";}
+function imgP(id){return "images/q"+id+".png";}
 const app=document.getElementById("app");
 function render(){
   if(S.scr==="welcome")rWelcome();else if(S.scr==="quiz")rQuiz();else if(S.scr==="results")rResults();
   else if(S.scr==="review")rReview();else if(S.scr==="history")rHistory();else if(S.scr==="histDetail")rHistDetail();
   window.scrollTo({top:0,behavior:"smooth"});}
-function tIco(){return S.dk?"\u2600\ufe0f":"\ud83c\udf19";}
-function tLbl(){return S.dk?"lights on":"lights off";}
-function hdrBtns(showH){
+function tI(){return S.dk?"\u2600\ufe0f":"\ud83c\udf19";}
+function tL(){return S.dk?"lights on":"lights off";}
+function hB(showH){
   const h=JSON.parse(localStorage.getItem("dkt-history")||"[]");
-  return '<div class="header-row">'+(showH&&h.length?'<a class="header-btn" onclick="goHistory()">\ud83d\udcca History</a>':'<span></span>')
-    +'<a class="header-btn" onclick="toggleTheme()">'+tIco()+' '+tLbl()+'</a></div>';}
+  return '<div class="header-row">'+(showH&&h.length?'<a class="header-btn" onclick="goHist()">\ud83d\udcca History</a>':'<span></span>')
+    +'<a class="header-btn" onclick="togTheme()">'+tI()+' '+tL()+'</a></div>';}
 
 function rWelcome(){
   const prog=loadProg();
-  app.innerHTML='<div class="header">'+hdrBtns(true)
+  app.innerHTML='<div class="header">'+hB(true)
     +'<img src="images/logo.png" class="logo-placeholder" onerror="this.style.display=\'none\'">'
     +'<h1>Tasmania Motorcycle<br><span>Practice DKT</span></h1>'
     +'<div class="header-sub">Prepare for your motorcycle knowledge test</div></div>'
     +'<div class="container"><div class="card">'
     +'<div class="welcome-info">There are <b>35 questions</b> in the test divided into <b>5 sections</b>. You must pass each section to achieve an overall test pass.</div>'
     +SECS.map(s=>'<div class="pass-row"><span class="pass-label"><span class="pass-dot" style="background:'+s.color+'"></span>'+s.name+'</span><span class="pass-val">'+s.req+'/'+s.tot+' = Pass</span></div>').join("")
-    +'<div class="mt-20">'+(prog?'<button class="btn btn-primary mb-8" onclick="resumeTest()">Continue Test</button><button class="btn btn-outline" onclick="startTest()">Start New Test</button>'
-    :'<button class="btn btn-primary" onclick="startTest()">Start Test</button>')+'</div>'
+    +'<div class="mt-20">'+(prog?'<button class="btn btn-primary mb-8" onclick="resume()">Continue Test</button><button class="btn btn-outline" onclick="startT()">Start New Test</button>'
+    :'<button class="btn btn-primary" onclick="startT()">Start Test</button>')+'</div>'
     +'<div class="text-center mt-12" style="color:var(--textL);font-size:12px">* Each attempt draws random questions from a larger bank<br>* You can attempt the test as many times as you like</div>'
     +'</div><div class="text-center" style="color:var(--textL);font-size:11px;margin-top:12px;line-height:1.4">Based on the official Tasmanian DKT question bank.<br>Not affiliated with the Department of State Growth or Service Tasmania.</div></div>';}
 
 function rQuiz(){
   const q=S.qs[S.cur];const sec=SECS.find(s=>s.name===q.section);
-  const secQs=S.qs.filter(x=>x.section===q.section);const secIdx=secQs.indexOf(q)+1;
-  const answered=S.ans[q.id]!==undefined;const fb=S.fb;
-  let img="";if(q.img)img='<div class="q-img-wrap"><img src="'+imgPath(q.img)+'" alt="Diagram" onerror="this.parentElement.innerHTML=\'<div class=q-img-fallback>Image: q'+q.img+'.png not yet added</div>\'"></div>';
-  let opts=q.opts.map((o,i)=>{let cls="opt";if(fb){if(i===q.c)cls+=" correct show-correct";else if(S.ans[q.id]===i&&i!==q.c)cls+=" wrong";}else if(S.ans[q.id]===i)cls+=" selected";
-    return '<div class="'+cls+'" onclick="selOpt('+i+')"><div class="opt-radio"></div><div class="opt-text">'+o+'</div></div>';}).join("");
+  const sQs=S.qs.filter(x=>x.section===q.section);const sI=sQs.indexOf(q)+1;
+  const ans=S.ans[q.id]!==undefined;const fb=S.fb;
+  let img="";if(q.img)img='<div class="q-img-wrap"><img src="'+imgP(q.img)+'" alt="Diagram" onerror="this.parentElement.innerHTML=\'<div class=q-img-fallback>Image: q'+q.img+'.png not yet added</div>\'"></div>';
+  let opts=q.opts.map((o,i)=>{let c="opt";if(fb){if(i===q.c)c+=" correct show-correct";else if(S.ans[q.id]===i&&i!==q.c)c+=" wrong";}else if(S.ans[q.id]===i)c+=" selected";
+    return '<div class="'+c+'" onclick="sel('+i+')"><div class="opt-radio"></div><div class="opt-text">'+o+'</div></div>';}).join("");
   let fbH="";if(fb){const ic=S.ans[q.id]===q.c;fbH='<div class="feedback '+(ic?"correct":"wrong")+'"><div class="feedback-title">'+(ic?"\u2714\ufe0f Correct!":"\u2716\ufe0f Incorrect. The answer is "+L[q.c]+".")+'</div><div class="feedback-exp">'+q.exp+'</div></div>';}
-  let nav="";if(!fb)nav='<div class="nav-btns">'+(S.cur>0?'<button class="btn btn-outline" onclick="prevQ()">Back</button>':'')+'<button class="btn btn-primary" '+(answered?"":"disabled")+' onclick="confirmAns()">Confirm</button></div>';
-  else nav='<div class="nav-btns"><button class="btn btn-primary" onclick="nextQ()">'+(S.cur<S.qs.length-1?"Next":"See Results")+'</button></div>';
-  app.innerHTML='<div class="quiz-bar"><div class="quiz-bar-top"><span class="quiz-section" style="color:'+sec.color+'">'+q.section+' ('+secIdx+'/'+sec.tot+')</span>'
-    +'<div class="quiz-tools"><button class="quiz-tool-btn" onclick="goHome()">\ud83c\udfe0 Home</button><button class="quiz-tool-btn" onclick="toggleTheme()">'+tIco()+'</button>'
-    +'<span class="quiz-total">'+(S.cur+1)+'/35</span></div></div>'
-    +'<div class="progress"><div class="progress-fill" style="width:'+((S.cur+1)/35*100)+'%"></div></div></div>'
+  let nav="";if(!fb)nav='<div class="nav-btns">'+(S.cur>0?'<button class="btn btn-outline" onclick="prev()">Back</button>':'')+'<button class="btn btn-primary" '+(ans?"":"disabled")+' onclick="conf()">Confirm</button></div>';
+  else nav='<div class="nav-btns"><button class="btn btn-primary" onclick="next()">'+(S.cur<S.qs.length-1?"Next":"See Results")+'</button></div>';
+  app.innerHTML='<div class="quiz-bar"><div class="quiz-bar-top"><span class="quiz-section" style="color:'+sec.color+'">'+q.section+' ('+sI+'/'+sec.tot+')</span>'
+    +'<div class="quiz-tools"><button class="quiz-tool-btn" onclick="goHome()">\ud83c\udfe0 Home</button><button class="quiz-tool-btn" onclick="togTheme()">'+tI()+'</button>'
+    +'<span class="quiz-total">'+(S.cur+1)+'/35</span></div></div></div>'
+    +'<div class="progress"><div class="progress-fill" style="width:'+((S.cur+1)/35*100)+'%"></div></div>'
     +'<div class="container"><div class="card">'
     +'<div class="q-head"><div class="q-num" style="background:'+sec.color+'">'+(S.cur+1)+'</div><div class="q-text">'+q.q+'</div></div>'
     +img+opts+fbH+nav+'</div></div>';}
 
 function rResults(){
   const res=getRes(S.qs,S.ans);const ap=res.every(r=>r.passed);const tot=S.qs.filter(q=>S.ans[q.id]===q.c).length;
-  app.innerHTML='<div class="header">'+hdrBtns(false)+'<h1>'+(ap?"\u2705 Test Passed!":"\u274c Not Yet")+'</h1><div class="header-sub">'+tot+' of 35 correct</div></div>'
+  app.innerHTML='<div class="header">'+hB(false)+'<h1>'+(ap?"\u2705 Test Passed!":"\u274c Not Yet")+'</h1><div class="header-sub">'+tot+' of 35 correct</div></div>'
     +'<div class="container"><div class="card"><h3 class="mb-16" style="color:var(--textM);text-transform:uppercase;letter-spacing:1px;font-size:13px">Section Breakdown</h3>'
     +res.map(r=>'<div class="section-result '+(r.passed?"pass":"fail")+'"><div class="sr-left"><span class="sr-icon">'+(r.passed?"\u2705":"\u274c")+'</span><div><div class="sr-name">'+r.name+'</div><div class="sr-need">Need '+r.req+' of '+r.tot+'</div></div></div><div class="sr-score" style="color:'+(r.passed?"var(--green)":"var(--red)")+'">'+r.correct+'/'+r.tot+'</div></div>').join("")
-    +'<div class="nav-btns mt-20"><button class="btn btn-outline" onclick="showReview()">Review Answers</button><button class="btn btn-primary" onclick="startTest()">New Test</button></div></div></div>';}
+    +'<div class="nav-btns mt-20"><button class="btn btn-outline" onclick="showRev()">Review Answers</button><button class="btn btn-primary" onclick="startT()">New Test</button></div>'
+    +'<div class="mt-12"><button class="btn btn-outline" onclick="S.scr=\'welcome\';render()">\ud83c\udfe0 Home</button></div>'
+    +'</div></div>';}
 
-function buildRevItems(qs,ans){
+function bRI(qs,ans){
   return qs.map((q,i)=>{const ua=ans[q.id];const ic=ua===q.c;
-    let body="";if(q.img)body+='<div class="q-img-wrap mb-8"><img src="'+imgPath(q.img)+'" alt="Diagram" onerror="this.parentElement.style.display=\'none\'"></div>';
-    body+=q.opts.map((o,j)=>{let icon="\u25cb",style="color:var(--textM)";if(j===q.c){icon="\u2714";style="color:var(--green);font-weight:700"}else if(j===ua&&!ic){icon="\u2716";style="color:var(--red);text-decoration:line-through;opacity:0.7"}
-      return '<div style="padding:6px 0;'+style+'">'+icon+' '+o+'</div>';}).join("")
+    let body="";if(q.img)body+='<div class="q-img-wrap mb-8"><img src="'+imgP(q.img)+'" alt="" onerror="this.parentElement.style.display=\'none\'"></div>';
+    body+=q.opts.map((o,j)=>{let icon="\u25cb",st="color:var(--textM)";if(j===q.c){icon="\u2714";st="color:var(--green);font-weight:700"}else if(j===ua&&!ic){icon="\u2716";st="color:var(--red);text-decoration:line-through;opacity:0.7"}
+      return '<div style="padding:6px 0;'+st+'">'+icon+' '+o+'</div>';}).join("")
       +'<div class="feedback '+(ic?"correct":"wrong")+'" style="margin-top:10px"><div class="feedback-exp">'+q.exp+'</div></div>';
-    return '<div class="review-item" id="rev'+i+'"><div class="review-header" onclick="toggleRev('+i+')"><span class="review-num">'+(i+1)+'</span><span class="review-q">'+q.q+'</span><span class="review-icon">'+(ic?"\u2705":"\u274c")+'<span class="review-chevron">\u25bc</span></span></div><div class="review-body">'+body+'</div></div>';}).join("");}
+    return '<div class="review-item" id="rv'+i+'"><div class="review-header" onclick="togRev('+i+')"><span class="review-num">'+(i+1)+'</span><span class="review-q">'+q.q+'</span><span class="review-icon">'+(ic?"\u2705":"\u274c")+'<span class="review-chevron">\u25bc</span></span></div><div class="review-body">'+body+'</div></div>';}).join("");}
 
 function rReview(){
   app.innerHTML='<div class="header"><h1>Review Test</h1><div class="header-sub">Tap a question to expand the answer</div></div>'
-    +'<div class="container"><div class="card" style="padding:12px">'+buildRevItems(S.qs,S.ans)+'</div>'
-    +'<div class="nav-btns mt-12"><button class="btn btn-outline" onclick="S.scr=\'results\';render()">Back to Results</button><button class="btn btn-primary" onclick="startTest()">New Test</button></div></div>';}
+    +'<div class="container"><div class="card" style="padding:12px">'+bRI(S.qs,S.ans)+'</div>'
+    +'<div class="nav-btns mt-12"><button class="btn btn-outline" onclick="S.scr=\'results\';render()">Back to Results</button><button class="btn btn-primary" onclick="startT()">New Test</button></div>'
+    +'<div class="mt-12"><button class="btn btn-outline" onclick="S.scr=\'welcome\';render()">\ud83c\udfe0 Home</button></div></div>';}
 
 function rHistory(){
   const h=JSON.parse(localStorage.getItem("dkt-history")||"[]");
-  app.innerHTML='<div class="header">'+hdrBtns(false)+'<h1>\ud83d\udcca Test History</h1><div class="header-sub">'+h.length+' attempt'+(h.length!==1?"s":"")+'</div></div>'
+  app.innerHTML='<div class="header">'+hB(false)+'<h1>\ud83d\udcca Test History</h1><div class="header-sub">'+h.length+' attempt'+(h.length!==1?"s":"")+'</div></div>'
     +'<div class="container"><div class="card" style="padding:0">'
     +(h.length===0?'<div style="padding:24px;text-align:center;color:var(--textM)">No attempts yet. Take your first test!</div>'
     :h.map((a,i)=>'<div class="history-item" onclick="viewHD('+i+')"><div class="history-top"><div><div class="history-date">'+a.date+' '+(a.time||"")+'</div><div class="history-detail">'+a.secs.map(s=>s.n+': '+s.g+'/'+s.t).join(' | ')+'</div><div class="history-tap">Tap to review questions</div></div><div class="'+(a.passed?"history-pass":"history-fail")+'">'+a.score+'/35 '+(a.passed?"PASS":"FAIL")+'</div></div></div>').join(""))
@@ -365,21 +371,21 @@ function rHistDetail(){
   const h=JSON.parse(localStorage.getItem("dkt-history")||"[]");const a=h[S.histIdx];
   if(!a||!a.qs){S.scr="history";render();return;}
   app.innerHTML='<div class="header"><h1>Review: '+a.date+'</h1><div class="header-sub">'+a.score+'/35 '+(a.passed?"PASS":"FAIL")+'</div></div>'
-    +'<div class="container"><div class="card" style="padding:12px">'+buildRevItems(a.qs,a.ans)+'</div>'
+    +'<div class="container"><div class="card" style="padding:12px">'+bRI(a.qs,a.ans)+'</div>'
     +'<div class="mt-12"><button class="btn btn-outline" onclick="S.scr=\'history\';render()">Back to History</button></div></div>';}
 
-function startTest(){clearProg();S.qs=genTest();S.cur=0;S.ans={};S.fb=false;S.scr="quiz";render();}
-function resumeTest(){const p=loadProg();if(p){S.qs=p.qs;S.cur=p.cur;S.ans=p.ans;S.fb=false;S.scr="quiz";render();}}
-function selOpt(i){if(S.fb)return;S.ans[S.qs[S.cur].id]=i;render();}
-function confirmAns(){if(S.ans[S.qs[S.cur].id]===undefined)return;S.fb=true;saveProg();render();}
-function nextQ(){S.fb=false;if(S.cur<S.qs.length-1){S.cur++;saveProg();render();}else{clearProg();saveHist(S.qs,S.ans);S.scr="results";render();}}
-function prevQ(){if(S.cur>0){S.cur--;S.fb=S.ans[S.qs[S.cur].id]!==undefined;render();}}
+function startT(){clearProg();S.qs=genTest();S.cur=0;S.ans={};S.fb=false;S.scr="quiz";render();}
+function resume(){const p=loadProg();if(p){S.qs=p.qs;S.cur=p.cur;S.ans=p.ans;S.fb=false;S.scr="quiz";render();}}
+function sel(i){if(S.fb)return;S.ans[S.qs[S.cur].id]=i;render();}
+function conf(){if(S.ans[S.qs[S.cur].id]===undefined)return;S.fb=true;saveProg();render();}
+function next(){S.fb=false;if(S.cur<S.qs.length-1){S.cur++;saveProg();render();}else{clearProg();saveHist(S.qs,S.ans);S.scr="results";render();}}
+function prev(){if(S.cur>0){S.cur--;S.fb=S.ans[S.qs[S.cur].id]!==undefined;render();}}
 function goHome(){if(confirm("Leave test? Your progress will be saved so you can pick up where you left off.")){saveProg();S.scr="welcome";render();}}
-function showReview(){S.scr="review";render();}
-function goHistory(){S.scr="history";render();}
+function showRev(){S.scr="review";render();}
+function goHist(){S.scr="history";render();}
 function viewHD(i){S.histIdx=i;S.scr="histDetail";render();}
-function toggleRev(i){document.getElementById("rev"+i).classList.toggle("open");}
-function toggleTheme(){S.dk=!S.dk;document.body.classList.toggle("dark");localStorage.setItem("dkt-dark",S.dk?"1":"0");render();}
+function togRev(i){document.getElementById("rv"+i).classList.toggle("open");}
+function togTheme(){S.dk=!S.dk;document.body.classList.toggle("dark");localStorage.setItem("dkt-dark",S.dk?"1":"0");render();}
 render();
 
 </script>
