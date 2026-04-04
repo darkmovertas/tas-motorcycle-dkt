@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DKT Image Gallery</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito',system-ui,sans-serif;background:#f0f9ff;color:#1e293b;padding:16px}
+h1{text-align:center;font-size:22px;margin-bottom:4px}
+.sub{text-align:center;color:#64748b;font-size:14px;margin-bottom:20px}
+.stats{text-align:center;background:#fff;padding:12px;border-radius:10px;margin-bottom:16px;font-size:14px;color:#64748b}.stats b{color:#1e293b}
+.gi{background:#fff;border-radius:12px;box-shadow:0 1px 4px #0001;padding:16px;margin-bottom:16px;max-width:700px;margin-left:auto;margin-right:auto}
+.gi-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.gi-id{font-weight:800;color:#0d9488;font-size:15px}.gi-dim{font-size:12px;color:#94a3b8;background:#f1f5f9;padding:2px 8px;border-radius:10px}
+.gi-q{font-size:14px;color:#64748b;margin-bottom:10px;line-height:1.4}
+.gi-img{background:#e8f5e9;border-radius:8px;min-height:60px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.gi-img img{max-width:100%;height:auto;display:block}
+.gi-missing{padding:20px;color:#94a3b8;font-style:italic;font-size:13px}
+.filter{text-align:center;margin-bottom:16px}.filter button{padding:6px 14px;border-radius:20px;border:1px solid #e2e8f0;background:#fff;cursor:pointer;font-family:inherit;font-size:13px;margin:3px}.filter button.active{background:#0d9488;color:#fff;border-color:#0d9488}
+</style></head><body>
+<h1>DKT Image Gallery</h1>
+<div class="sub">All 92 questions that need images, displayed sequentially</div>
+<div class="stats">Total: <b>92</b> | Added: <b><span id="ct">0</span></b> | Missing: <b><span id="ms">0</span></b></div>
+<div class="filter"><button class="active" onclick="fA(this)">All</button><button onclick="fM(this)">Missing Only</button><button onclick="fD(this)">Added Only</button></div>
+<div id="g"><div class="gi">
+<div class="gi-head"><span class="gi-id">qg1.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q1: Can Car A cross the double lines?</div>
+<div class="gi-img"><img src="images/qg1.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg2.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q2: Which car(s) can cross the lines to overtake (when it’s safe)?</div>
+<div class="gi-img"><img src="images/qg2.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg3.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q3: You are driving Car A. When can’t you cross the double broken lines?</div>
+<div class="gi-img"><img src="images/qg3.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg4.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q4: You are driving Car A. When can’t you cross the single continuous line?</div>
+<div class="gi-img"><img src="images/qg4.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg5.png</span><span class="gi-dim">400x400</span></div>
+<div class="gi-q">Q5: This sign means?</div>
+<div class="gi-img"><img src="images/qg5.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg6.png</span><span class="gi-dim">400x400</span></div>
+<div class="gi-q">Q6: This sign means?</div>
+<div class="gi-img"><img src="images/qg6.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg7.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q7: Car A wants to turn right at an intersection with green traffic lights. It should indicate and -</div>
+<div class="gi-img"><img src="images/qg7.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg8.png</span><span class="gi-dim">400x400</span></div>
+<div class="gi-q">Q8: When approaching an intersection with a single flashing yellow traffic light. You must -</div>
+<div class="gi-img"><img src="images/qg8.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg10.png</span><span class="gi-dim">400x400</span></div>
+<div class="gi-q">Q10: What is the maximum speed a car learner licence holder can drive in a 110 km/h speed zone?</div>
+<div class="gi-img"><img src="images/qg10.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg12.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q12: In what order should the cars go through the intersection?</div>
+<div class="gi-img"><img src="images/qg12.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg13.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q13: In what order should the cars go through the roundabout? (Car A and car C are travelling straight ahead. Car B is turnin</div>
+<div class="gi-img"><img src="images/qg13.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg14.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q14: Which car gives way?</div>
+<div class="gi-img"><img src="images/qg14.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg15.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q15: Which car gives way?</div>
+<div class="gi-img"><img src="images/qg15.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg16.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q16: Which vehicle gives way?</div>
+<div class="gi-img"><img src="images/qg16.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg17.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q17: Which car must give way?</div>
+<div class="gi-img"><img src="images/qg17.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg18.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q18: Which car must give way?</div>
+<div class="gi-img"><img src="images/qg18.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg19.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q19: Which car goes first?</div>
+<div class="gi-img"><img src="images/qg19.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg42.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q42: You are driving on a divided road and see an emergency vehicle on the other side of the road with lights flashing. There</div>
+<div class="gi-img"><img src="images/qg42.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg43.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q43: When driving at night, you must dip your headlights -</div>
+<div class="gi-img"><img src="images/qg43.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg44.png</span><span class="gi-dim">400x400</span></div>
+<div class="gi-q">Q44: At a railway crossing with red lights flashing, you must-</div>
+<div class="gi-img"><img src="images/qg44.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg45.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q45: An emergency vehicle (e.g. ambulance or fire engine) is sounding its siren and quickly approaching your vehicle from beh</div>
+<div class="gi-img"><img src="images/qg45.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg46.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q46: You are driving Car A. You are approaching an uncontrolled intersection and want to turn left. There is a cyclist in fro</div>
+<div class="gi-img"><img src="images/qg46.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg49.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q49: You can do a U-turn at an intersection with traffic lights -</div>
+<div class="gi-img"><img src="images/qg49.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg51.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q51: You are driving Car A. Car B In front of you has stopped at a pedestrian crossing, you must -</div>
+<div class="gi-img"><img src="images/qg51.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg52.png</span><span class="gi-dim">400x400</span></div>
+<div class="gi-q">Q52: As a P1 licence holder, what is the maximum speed you can drive on a road with this sign? (110 sign)</div>
+<div class="gi-img"><img src="images/qg52.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg53.png</span><span class="gi-dim">400x400</span></div>
+<div class="gi-q">Q53: This sign means? (60 sign)</div>
+<div class="gi-img"><img src="images/qg53.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg56.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q56: When approaching a stopped school bus with amber flashing lights that is letting off children (on a country road), you m</div>
+<div class="gi-img"><img src="images/qg56.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg57.png</span><span class="gi-dim">400x400</span></div>
+<div class="gi-q">Q57: This sign means? (Road Work 60 sign)</div>
+<div class="gi-img"><img src="images/qg57.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg58.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q58: You are driving in a built-up area (like a city or town). A bus is stopped at a bus stop in the left lane next to you an</div>
+<div class="gi-img"><img src="images/qg58.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg59.png</span><span class="gi-dim">400x400</span></div>
+<div class="gi-q">Q59: What is the maximum speed limit in a school zone during school days?</div>
+<div class="gi-img"><img src="images/qg59.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg61.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q61: You are behind a long vehicle (7.5 m or more in length) that is signalling and starting to turn left. The truck is displ</div>
+<div class="gi-img"><img src="images/qg61.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg63.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q63: You are driving Car A along a multi-lane road and the speed limit is more than 80 km/h which of the following statements</div>
+<div class="gi-img"><img src="images/qg63.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg64.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q64: Where there are no line markings on the road where should you drive?</div>
+<div class="gi-img"><img src="images/qg64.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg66.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q66: You are driving car A. In what direction must you travel?</div>
+<div class="gi-img"><img src="images/qg66.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg67.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q67: You are driving Car A. In what direction must you travel?</div>
+<div class="gi-img"><img src="images/qg67.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg68.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q68: You are driving Car A and you want to merge with another line of traffic travelling in the same direction (there are no </div>
+<div class="gi-img"><img src="images/qg68.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg69.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q69: You are driving Car A in a 60 km/h speed zone. Your lane ends and you must merge with another lane of traffic travelling</div>
+<div class="gi-img"><img src="images/qg69.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg70.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q70: You are driving Car A in a 100 km/hr speed zone. Your lane has come to an end and you want to merge into another lane of</div>
+<div class="gi-img"><img src="images/qg70.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg72.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q72: You are driving a motor vehicle towards a marked multi-laned roundabout. You want to travel straight on through the roun</div>
+<div class="gi-img"><img src="images/qg72.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg74.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q74: You are driving Car A. You want to move to the right hand lane. You must-</div>
+<div class="gi-img"><img src="images/qg74.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg75.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q75: Does a Police Officer’s directions overrule Stop and Give Way signs?</div>
+<div class="gi-img"><img src="images/qg75.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg82.png</span><span class="gi-dim">400x400</span></div>
+<div class="gi-q">Q82: What is the maximum speed a leaner driver can drive in a 100 km/h speed zone?</div>
+<div class="gi-img"><img src="images/qg82.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg83.png</span><span class="gi-dim">400x400</span></div>
+<div class="gi-q">Q83: As a P1 licence holder, what is the maximum speed you can drive on a road with this sign? (100 km/h sign)</div>
+<div class="gi-img"><img src="images/qg83.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg85.png</span><span class="gi-dim">400x400</span></div>
+<div class="gi-q">Q85: This sign means? (45 km/h warning sign)</div>
+<div class="gi-img"><img src="images/qg85.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg86.png</span><span class="gi-dim">400x400</span></div>
+<div class="gi-q">Q86: This sign means?</div>
+<div class="gi-img"><img src="images/qg86.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg87.png</span><span class="gi-dim">400x400</span></div>
+<div class="gi-q">Q87: This sign means?</div>
+<div class="gi-img"><img src="images/qg87.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg88.png</span><span class="gi-dim">400x400</span></div>
+<div class="gi-q">Q88: This sign means?</div>
+<div class="gi-img"><img src="images/qg88.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg89.png</span><span class="gi-dim">400x400</span></div>
+<div class="gi-q">Q89: This sign means?</div>
+<div class="gi-img"><img src="images/qg89.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg90.png</span><span class="gi-dim">400x400</span></div>
+<div class="gi-q">Q90: This sign means?</div>
+<div class="gi-img"><img src="images/qg90.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg91.png</span><span class="gi-dim">400x400</span></div>
+<div class="gi-q">Q91: This sign means?</div>
+<div class="gi-img"><img src="images/qg91.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg92.png</span><span class="gi-dim">400x400</span></div>
+<div class="gi-q">Q92: This sign means?</div>
+<div class="gi-img"><img src="images/qg92.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg93.png</span><span class="gi-dim">400x400</span></div>
+<div class="gi-q">Q93: This sign means?</div>
+<div class="gi-img"><img src="images/qg93.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg94.png</span><span class="gi-dim">400x400</span></div>
+<div class="gi-q">Q94: This sign means?</div>
+<div class="gi-img"><img src="images/qg94.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg95.png</span><span class="gi-dim">400x400</span></div>
+<div class="gi-q">Q95: This sign means?</div>
+<div class="gi-img"><img src="images/qg95.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg96.png</span><span class="gi-dim">400x400</span></div>
+<div class="gi-q">Q96: This sign means?</div>
+<div class="gi-img"><img src="images/qg96.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg97.png</span><span class="gi-dim">400x400</span></div>
+<div class="gi-q">Q97: This sign means?</div>
+<div class="gi-img"><img src="images/qg97.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg98.png</span><span class="gi-dim">400x400</span></div>
+<div class="gi-q">Q98: This sign means?</div>
+<div class="gi-img"><img src="images/qg98.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg100.png</span><span class="gi-dim">400x400</span></div>
+<div class="gi-q">Q100: This sign means?</div>
+<div class="gi-img"><img src="images/qg100.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg101.png</span><span class="gi-dim">400x400</span></div>
+<div class="gi-q">Q101: This sign means?</div>
+<div class="gi-img"><img src="images/qg101.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg102.png</span><span class="gi-dim">400x400</span></div>
+<div class="gi-q">Q102: This sign means on a multi-laned road?</div>
+<div class="gi-img"><img src="images/qg102.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg103.png</span><span class="gi-dim">400x400</span></div>
+<div class="gi-q">Q103: This sign means?</div>
+<div class="gi-img"><img src="images/qg103.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg104.png</span><span class="gi-dim">400x400</span></div>
+<div class="gi-q">Q104: This sign means?</div>
+<div class="gi-img"><img src="images/qg104.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg105.png</span><span class="gi-dim">400x400</span></div>
+<div class="gi-q">Q105: This sign means?</div>
+<div class="gi-img"><img src="images/qg105.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg109.png</span><span class="gi-dim">400x400</span></div>
+<div class="gi-q">Q109: How close to a pedestrian crossing can you legally park?</div>
+<div class="gi-img"><img src="images/qg109.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg112.png</span><span class="gi-dim">400x400</span></div>
+<div class="gi-q">Q112: What does this sign mean?</div>
+<div class="gi-img"><img src="images/qg112.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg113.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q113: What must you do at an intersection with green traffic lights, which is blocked by other vehicles?</div>
+<div class="gi-img"><img src="images/qg113.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg115.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q115: When traffic lights turn from green to yellow you should -</div>
+<div class="gi-img"><img src="images/qg115.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg116.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q116: You are approaching an intersection controlled by traffic lights. There is a red circular light and a green arrow pointi</div>
+<div class="gi-img"><img src="images/qg116.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg117.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q117: Which car gives way?</div>
+<div class="gi-img"><img src="images/qg117.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg118.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q118: The traffic lights are green and there is a red right arrow. Cars A and B are going straight ahead, Car C is turning rig</div>
+<div class="gi-img"><img src="images/qg118.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg119.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q119: There are red traffic lights and a green right arrow. Cars A and B are going straight ahead, Car C is turning right. Whi</div>
+<div class="gi-img"><img src="images/qg119.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg120.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q120: Which vehicle gives way?</div>
+<div class="gi-img"><img src="images/qg120.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg121.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q121: Which car goes first?</div>
+<div class="gi-img"><img src="images/qg121.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg122.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q122: On a multi-laned road, Car A and Car B want to change to the centre lane. Which car can change lanes first?</div>
+<div class="gi-img"><img src="images/qg122.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg123.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q123: Which vehicle goes first?</div>
+<div class="gi-img"><img src="images/qg123.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg124.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q124: Which car goes first?</div>
+<div class="gi-img"><img src="images/qg124.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg126.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q126: Who must give way?</div>
+<div class="gi-img"><img src="images/qg126.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg127.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q127: In what order do the cars go?</div>
+<div class="gi-img"><img src="images/qg127.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg128.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q128: Which car goes first?</div>
+<div class="gi-img"><img src="images/qg128.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg129.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q129: Does the car or the pedestrian have to give way?</div>
+<div class="gi-img"><img src="images/qg129.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg130.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q130: Which car must give way?</div>
+<div class="gi-img"><img src="images/qg130.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg131.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q131: Which car must give way?</div>
+<div class="gi-img"><img src="images/qg131.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg132.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q132: Which car must give way?</div>
+<div class="gi-img"><img src="images/qg132.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg133.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q133: Which car must give way?</div>
+<div class="gi-img"><img src="images/qg133.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg134.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q134: Which vehicle goes first?</div>
+<div class="gi-img"><img src="images/qg134.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg135.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q135: Which car goes first?</div>
+<div class="gi-img"><img src="images/qg135.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg136.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q136: Which car gives way?</div>
+<div class="gi-img"><img src="images/qg136.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg137.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q137: Which car gives way?</div>
+<div class="gi-img"><img src="images/qg137.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg149.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q149: You are driving Car A. Which cars must you give way to?</div>
+<div class="gi-img"><img src="images/qg149.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qg150.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">Q150: You are driving Car A. You want to turn right. You must give way to -</div>
+<div class="gi-img"><img src="images/qg150.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qm7.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">QM7: Lane filtering on single-lane road</div>
+<div class="gi-img"><img src="images/qm7.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+<div class="gi">
+<div class="gi-head"><span class="gi-id">qm10.png</span><span class="gi-dim">800x500</span></div>
+<div class="gi-q">QM10: Car A blocking lane filter opportunity</div>
+<div class="gi-img"><img src="images/qm10.png" onerror="this.parentElement.innerHTML='<div class=gi-missing>Not yet added</div>'"></div>
+</div>
+</div>
+<script>
+setTimeout(()=>{let a=0,m=0;document.querySelectorAll(".gi").forEach(g=>{if(g.querySelector(".gi-missing"))m++;else a++;});document.getElementById("ct").textContent=a;document.getElementById("ms").textContent=m;},500);
+function fA(b){document.querySelectorAll(".gi").forEach(g=>g.style.display="");sA(b);}
+function fM(b){document.querySelectorAll(".gi").forEach(g=>{g.style.display=g.querySelector(".gi-missing")?"":"none";});sA(b);}
+function fD(b){document.querySelectorAll(".gi").forEach(g=>{g.style.display=g.querySelector(".gi-missing")?"none":"";});sA(b);}
+function sA(b){document.querySelectorAll(".filter button").forEach(x=>x.classList.remove("active"));b.classList.add("active");}
+</script></body></html>
