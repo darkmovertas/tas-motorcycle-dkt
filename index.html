@@ -10,7 +10,7 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--teal:#0d9488;--tealL:#14b8a6;--amber:#f59e0b;--amberD:#d97706;--skyD:#0ea5e9;--skyDD:#0284c7;--green:#10b981;--red:#ef4444;--bg:#f0f9ff;--card:#fff;--text:#1e293b;--textM:#64748b;--textL:#94a3b8;--border:#e2e8f0;--radius:12px;--compC:#f97316;--traffC:#ea580c;--roadC:#2563eb;--safeC:#7c3aed;--motoC:#059669}
-body{font-family:'Nunito',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;padding-bottom:50px}
+body{font-family:'Nunito',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;padding-bottom:90px}
 .header{background:linear-gradient(135deg,var(--skyD),var(--skyDD));color:#fff;text-align:center;padding:14px 16px 18px;position:relative}
 .header h1{font-size:24px;font-weight:900;letter-spacing:-0.5px;margin-top:4px}
 .header h1 span{color:var(--amber)}.header-sub{margin-top:4px;opacity:0.85;font-size:13px}
@@ -27,13 +27,22 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--bg);color:var(--
 .pass-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border)}.pass-row:last-child{border-bottom:none}
 .pass-dot{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:8px}
 .pass-label{font-weight:600;font-size:15px;display:flex;align-items:center}.pass-val{font-weight:700;color:var(--textM);font-size:14px}
-.quiz-bar{background:var(--card);border-bottom:2px solid var(--border);padding:10px 16px;position:sticky;top:0;z-index:20}
+.quiz-top-bar{background:var(--card);border-bottom:1px solid var(--border);padding:8px 16px}
+.quiz-top-inner{max-width:640px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.quiz-top-logo{max-height:36px;max-width:150px;display:block}
+.quiz-bar{background:var(--card);padding:2px 16px 0;position:sticky;top:0;z-index:20;border-bottom:1px solid var(--border)}
 .quiz-bar-inner{max-width:640px;margin:0 auto}
-.quiz-bar-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;gap:8px}
+.quiz-bar hr{border:none;border-top:1px solid var(--border);margin:4px 0}
+.quiz-bar-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0}
 .quiz-section{font-weight:800;font-size:15px}
-.quiz-total{font-weight:700;font-size:14px;color:var(--textM)}
+.quiz-total{font-weight:700;font-size:13px;color:var(--textM)}
 .quiz-tools{display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
 .quiz-tool-btn{background:none;border:1px solid var(--border);border-radius:6px;padding:3px 8px;cursor:pointer;font-size:11px;color:var(--textM);font-family:inherit;font-weight:600}.quiz-tool-btn:hover{background:var(--bg)}
+.quiz-nav-fixed{position:fixed;bottom:0;left:0;right:0;background:var(--card);border-top:1px solid var(--border);z-index:20;padding:0 16px 12px}
+.quiz-nav-inner{max-width:640px;margin:0 auto}
+.moto-hr-wrap{position:relative;height:30px;margin:2px 0 6px}
+.moto-line{position:absolute;top:50%;left:0;right:0;border:none;border-top:2px solid var(--border);margin:0}
+.moto-emoji{position:absolute;top:50%;transform:translateY(-50%) scaleX(-1);font-size:20px;transition:left 0.5s ease-out}
 .progress{height:6px;background:var(--border);border-radius:3px;overflow:hidden;max-width:640px;margin:0 auto}
 .progress-fill{height:100%;background:linear-gradient(90deg,var(--teal),var(--tealL));border-radius:3px;transition:width 0.4s ease}
 .q-num{width:38px;height:38px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:800;flex-shrink:0;color:#fff}
@@ -69,12 +78,14 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--bg);color:var(--
 .history-top{display:flex;justify-content:space-between;align-items:center}.history-date{font-weight:700}
 .history-pass{color:var(--green);font-weight:700}.history-fail{color:var(--red);font-weight:700}
 .history-detail{font-size:12px;color:var(--textM);margin-top:4px}.history-tap{font-size:11px;color:var(--textL);margin-top:2px}
-.footer-strip{position:fixed;bottom:0;left:0;right:0;height:44px;background:linear-gradient(0deg,#1a3a2a 0%,#2d5a3f 50%,#4a8c6a 90%,transparent 100%);z-index:5;pointer-events:none;overflow:hidden}
-.footer-road{position:absolute;bottom:12px;left:0;right:0;height:2px;background:repeating-linear-gradient(90deg,#fff5 0px,#fff5 16px,transparent 16px,transparent 32px)}
-.footer-moto{position:absolute;bottom:14px;left:var(--moto-pos,3%);font-size:22px;transform:scaleX(-1);transition:left 0.6s ease-out}
 body.dark{--bg:#0f172a;--card:#1e293b;--text:#f1f5f9;--textM:#94a3b8;--textL:#64748b;--border:#334155}
 body.dark .header{background:linear-gradient(135deg,#0f172a,#1e293b);border-bottom:1px solid #334155}
-body.dark .footer-strip{background:linear-gradient(0deg,#0a1a10 0%,#1a3a2a 50%,#2d5a3f 90%,transparent 100%)}
+.quiz-nav-fixed .nav-btns{margin-top:0}
+body.dark .quiz-top-bar{border-bottom-color:#334155}
+body.dark .quiz-bar{border-bottom-color:#334155}
+body.dark .quiz-bar hr{border-top-color:#334155}
+body.dark .quiz-nav-fixed{border-top-color:#334155}
+body.dark .moto-line{border-top-color:#334155}
 .mt-12{margin-top:12px}.mt-16{margin-top:16px}.mt-20{margin-top:20px}.mb-8{margin-bottom:8px}.mb-16{margin-bottom:16px}.text-center{text-align:center}
 @media(min-width:500px){.q-text{font-size:20px}.opt-text{font-size:16px}}
 @media(min-width:768px){
@@ -85,7 +96,6 @@ body.dark .footer-strip{background:linear-gradient(0deg,#0a1a10 0%,#1a3a2a 50%,#
 </head>
 <body>
 <div id="app"></div>
-<div class="footer-strip"><div class="footer-road"></div><div class="footer-moto">🏍️</div></div>
 <script>
 const COMP=[{id:"g1",q:"Can Car A cross the double lines?",img:"1",opts:["Yes to overtake another vehicle.","Yes - to turn into a driveway.","Yes to pass a cyclist if it’s safe to do so.","Yes to do a U-turn."],c:2,exp:"In Tasmania, you may cross continuous double white lines to enter or leave a road or property, such as a driveway."},
 {id:"g2",q:"Which car(s) can cross the lines to overtake (when it’s safe)?",img:"2",opts:["Car A.","Car B."],c:0,exp:"A driver may only cross a dividing line to overtake if the line immediately adjacent to their lane is broken."},
@@ -298,12 +308,7 @@ const app=document.getElementById("app");
 function render(){
   if(S.scr==="welcome")rWelcome();else if(S.scr==="quiz")rQuiz();else if(S.scr==="results")rResults();
   else if(S.scr==="review")rReview();else if(S.scr==="history")rHistory();else if(S.scr==="histDetail")rHistDetail();
-  // Update motorcycle footer position based on quiz progress
-  let mp=3;
-  if(S.scr==="quiz"&&S.qs&&S.qs.length){const pct=(S.cur+(S.fb?1:0))/S.qs.length;mp=3+pct*88;}
-  else if(S.scr==="results"||S.scr==="review"||S.scr==="histDetail"){mp=91;}
-  document.body.style.setProperty("--moto-pos",mp+"%");
-  window.scrollTo({top:0,behavior:"smooth"});}
+  if(S.scr!=="quiz")window.scrollTo({top:0,behavior:"smooth"});}
 function tI(){return S.dk?"\u2600\ufe0f":"\ud83c\udf19";}
 function tL(){return S.dk?"lights on":"lights off";}
 function hB(showH){
@@ -332,15 +337,34 @@ function rQuiz(){
   let img="";if(q.img)img='<div class="q-img-wrap"><img src="'+imgP(q.img)+'" alt="Diagram" onerror="this.parentElement.innerHTML=\'<div class=q-img-fallback>Image: q'+q.img+'.png not yet added</div>\'"></div>';
   let opts=q.opts.map((o,i)=>{let c="opt";if(fb){if(i===q.c)c+=" correct show-correct";else if(S.ans[q.id]===i&&i!==q.c)c+=" wrong";}else if(S.ans[q.id]===i)c+=" selected";
     return '<div class="'+c+'" onclick="sel('+i+')"><div class="opt-radio"></div><div class="opt-letter">'+L[i]+'.</div><div class="opt-text">'+o+'</div></div>';}).join("");
-  let fbH="";if(fb){const ic=S.ans[q.id]===q.c;fbH='<div class="feedback '+(ic?"correct":"wrong")+'"><div class="feedback-title">'+(ic?"\u2714\ufe0f Correct!":"\u2716\ufe0f Incorrect. The answer is "+L[q.c]+".")+'</div><div class="feedback-exp">'+q.exp+'</div><div class="feedback-link"><a href="'+HANDBOOK_URL+'" target="_blank" rel="noopener">\ud83d\udcd6 Look it up in the Road Rules Handbook</a></div></div>';}
-  let nav="";if(!fb)nav='<div class="nav-btns">'+(S.cur>0?'<button class="btn btn-outline" onclick="prev()">Back</button>':'')+'<button class="btn btn-primary" '+(ans?"":"disabled")+' onclick="conf()">Confirm</button></div>';
-  else nav='<div class="nav-btns"><button class="btn btn-primary" onclick="next()">'+(S.cur<S.qs.length-1?"Next":"See Results")+'</button></div>';
-  app.innerHTML='<div class="quiz-bar"><div class="quiz-bar-inner"><div class="quiz-bar-top"><span class="quiz-section" style="color:'+sec.color+'">'+q.section+' ('+sI+'/'+sec.tot+')</span>'
-    +'<div class="quiz-tools"><span class="quiz-total">'+(S.cur+1)+'/35</span><a class="quiz-tool-btn" href="'+HANDBOOK_URL+'" target="_blank" rel="noopener" title="Open the Tasmanian Road Rules Handbook in a new tab">\ud83d\udcd6 Handbook</a><button class="quiz-tool-btn" onclick="togTheme()">'+tI()+' '+tL()+'</button><button class="quiz-tool-btn" onclick="goHome()">\ud83c\udfe0 Home</button></div></div></div></div>'
+  let fbH="";if(fb){const ic=S.ans[q.id]===q.c;fbH='<div class="feedback '+(ic?"correct":"wrong")+'"><div class="feedback-title">'+(ic?"\u2714\ufe0f Correct!":"\u2716\ufe0f Incorrect. The answer is "+L[q.c]+".")+'</div><div class="feedback-exp">'+q.exp+'</div></div>';}
+  let navBtns="";
+  if(!fb)navBtns=(S.cur>0?'<button class="btn btn-outline" onclick="prev()">Back</button>':'')+'<button class="btn btn-primary" '+(ans?"":"disabled")+' onclick="conf()">Confirm</button>';
+  else navBtns='<button class="btn btn-primary" onclick="next()">'+(S.cur<S.qs.length-1?"Next":"See Results")+'</button>';
+  const pct=(S.cur+(S.fb?1:0))/S.qs.length;
+  const motoLeft=(3+pct*88)+"%";
+  app.innerHTML=
+    '<div class="quiz-top-bar"><div class="quiz-top-inner">'
+    +'<img src="images/logo.png" class="quiz-top-logo" onerror="this.style.display=\'none\'">'
+    +'<div class="quiz-tools"><a class="quiz-tool-btn" href="'+HANDBOOK_URL+'" target="_blank" rel="noopener">\ud83d\udcd6 Handbook</a>'
+    +'<button class="quiz-tool-btn" onclick="togTheme()">'+tI()+' '+tL()+'</button>'
+    +'<button class="quiz-tool-btn" onclick="goHome()">\ud83c\udfe0 Home</button>'
+    +'</div></div></div>'
+    +'<div class="quiz-bar"><div class="quiz-bar-inner">'
+    +'<hr><div class="quiz-bar-row">'
+    +'<span class="quiz-section" style="color:'+sec.color+'">'+q.section+' ('+sI+'/'+sec.tot+')</span>'
+    +'<span class="quiz-total">Completed '+(S.cur+1)+' of 35</span>'
+    +'</div><hr>'
+    +'</div></div>'
     +'<div class="progress"><div class="progress-fill" style="width:'+((S.cur+1)/35*100)+'%"></div></div>'
     +'<div class="container"><div class="card">'
     +'<div class="q-head"><div class="q-num" style="background:'+sec.color+'">'+(S.cur+1)+'</div><div class="q-text">'+q.q+'</div></div>'
-    +img+opts+fbH+nav+'</div></div>';}
+    +img+opts+fbH
+    +'</div></div>'
+    +'<div class="quiz-nav-fixed"><div class="quiz-nav-inner">'
+    +'<div class="moto-hr-wrap"><hr class="moto-line"><span class="moto-emoji" style="left:'+motoLeft+'">🏍️</span></div>'
+    +'<div class="nav-btns">'+navBtns+'</div>'
+    +'</div></div>';}
 
 function rResults(){
   const res=getRes(S.qs,S.ans);const ap=res.every(r=>r.passed);const tot=S.qs.filter(q=>S.ans[q.id]===q.c).length;
@@ -360,7 +384,8 @@ function bRI(qs,ans){
     return '<div class="review-item" id="rv'+i+'"><div class="review-header" onclick="togRev('+i+')"><span class="review-num">'+(i+1)+'</span><span class="review-q">'+q.q+'</span><span class="review-icon">'+(ic?"\u2705":"\u274c")+'<span class="review-chevron">\u25bc</span></span></div><div class="review-body">'+body+'</div></div>';}).join("");}
 
 function rReview(){
-  app.innerHTML='<div class="header"><h1>Review Test</h1><div class="header-sub">Tap a question to expand the answer</div></div>'
+  app.innerHTML='<div class="header"><h1>Review Test</h1><div class="header-sub">Tap a question to expand the answer</div>'
+    +'<div style="margin-top:10px"><a class="header-btn" href="'+HANDBOOK_URL+'" target="_blank" rel="noopener">\ud83d\udcd6 Road Rules Handbook</a></div></div>'
     +'<div class="container"><div class="card" style="padding:12px">'+bRI(S.qs,S.ans)+'</div>'
     +'<div class="nav-btns mt-12"><button class="btn btn-outline" onclick="S.scr=\'results\';render()">Back to Results</button><button class="btn btn-primary" onclick="startT()">New Test</button></div>'
     +'<div class="mt-12"><button class="btn btn-outline" onclick="S.scr=\'welcome\';render()">\ud83c\udfe0 Home</button></div></div>';}
@@ -385,7 +410,7 @@ function startT(){clearProg();S.qs=genTest();S.cur=0;S.ans={};S.fb=false;S.scr="
 function resume(){const p=loadProg();if(p){S.qs=p.qs;S.cur=p.cur;S.ans=p.ans;S.fb=false;S.scr="quiz";render();}}
 function sel(i){if(S.fb)return;S.ans[S.qs[S.cur].id]=i;render();}
 function conf(){if(S.ans[S.qs[S.cur].id]===undefined)return;S.fb=true;saveProg();render();}
-function next(){S.fb=false;if(S.cur<S.qs.length-1){S.cur++;saveProg();render();}else{clearProg();saveHist(S.qs,S.ans);S.scr="results";render();}}
+function next(){S.fb=false;if(S.cur<S.qs.length-1){S.cur++;saveProg();render();const tb=document.querySelector('.quiz-top-bar');if(tb)window.scrollTo({top:tb.offsetHeight,behavior:'smooth'});}else{clearProg();saveHist(S.qs,S.ans);S.scr="results";render();}}
 function prev(){if(S.cur>0){S.cur--;S.fb=S.ans[S.qs[S.cur].id]!==undefined;render();}}
 function goHome(){if(confirm("Leave test? Your progress will be saved so you can pick up where you left off.")){saveProg();S.scr="welcome";render();}}
 function showRev(){S.scr="review";render();}
