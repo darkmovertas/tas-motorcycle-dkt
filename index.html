@@ -42,7 +42,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--bg);color:var(--
 .quiz-nav-inner{max-width:640px;margin:0 auto}
 .moto-hr-wrap{position:relative;height:30px;margin:2px 0 6px}
 .moto-line{position:absolute;top:50%;left:0;right:0;border:none;border-top:2px solid var(--border);margin:0}
-.moto-emoji{position:absolute;top:50%;transform:translateY(-62%) scaleX(-1);font-size:20px;transition:left 0.5s ease-out}
+.moto-emoji{position:absolute;top:50%;transform:translateY(-82%) scaleX(-1);font-size:20px;line-height:1;transition:left 0.5s ease-out}
 .progress{height:6px;background:var(--border);border-radius:3px;overflow:hidden;max-width:640px;margin:0 auto}
 .progress-fill{height:100%;background:linear-gradient(90deg,var(--teal),var(--tealL));border-radius:3px;transition:width 0.4s ease}
 .q-num{width:38px;height:38px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:800;flex-shrink:0;color:#fff}
@@ -421,7 +421,7 @@ function rHistDetail(){
 function startT(){clearProg();S.qs=genTest();S.cur=0;S.ans={};S.fb=false;S.scr="quiz";render();}
 function resume(){const p=loadProg();if(p){S.qs=p.qs;S.cur=p.cur;S.ans=p.ans;S.fb=false;S.scr="quiz";render();}}
 function sel(i){if(S.fb)return;S.ans[S.qs[S.cur].id]=i;render();}
-function conf(){if(S.ans[S.qs[S.cur].id]===undefined)return;S.fb=true;saveProg();render();const fb=document.querySelector('.feedback');if(fb)fb.scrollIntoView({behavior:'smooth',block:'nearest'});}
+function conf(){if(S.ans[S.qs[S.cur].id]===undefined)return;S.fb=true;saveProg();render();setTimeout(()=>{const fb=document.querySelector('.feedback');if(fb)fb.scrollIntoView({behavior:'smooth',block:'nearest'});},50);}
 function next(){S.fb=false;if(S.cur<S.qs.length-1){S.cur++;saveProg();render();const tb=document.querySelector('.quiz-top-bar');if(tb)window.scrollTo({top:tb.offsetHeight,behavior:'smooth'});}else{clearProg();saveHist(S.qs,S.ans);S.scr="results";render();}}
 function prev(){if(S.cur>0){S.cur--;S.fb=S.ans[S.qs[S.cur].id]!==undefined;render();}}
 function goHome(){if(confirm("Leave test? Your progress will be saved so you can pick up where you left off.")){saveProg();S.scr="welcome";render();}}
