@@ -331,7 +331,7 @@ function rWelcome(){
   const h=JSON.parse(localStorage.getItem("dkt-history")||"[]");
   app.innerHTML=
     '<div class="quiz-top-bar"><div class="quiz-top-inner">'
-    +'<img src="images/logo.png" class="quiz-top-logo" onerror="this.style.display=\'none\'">'
+    +'<img src="images/logo.png" class="quiz-top-logo" style="cursor:pointer" onclick="window.scrollTo({top:0,behavior:\'smooth\'})" onerror="this.style.display=\'none\'" title="Tasmania Motorcycle DKT Practice">'
     +'<div class="quiz-tools">'
     +(h.length?'<button class="quiz-tool-btn" onclick="goHist()">\ud83d\udcca History</button>':'')
     +'<button class="quiz-tool-btn" onclick="togTheme()">'+tI()+' '+tL()+'</button>'
@@ -345,6 +345,7 @@ function rWelcome(){
     +'<div class="mt-20">'+(prog?'<button class="btn btn-primary mb-8" onclick="resume()">Continue Test</button><button class="btn btn-outline" onclick="startT()">Start New Test</button>'
     :'<button class="btn btn-primary" onclick="startT()">Start Test</button>')+'</div>'
     +'<div class="text-center mt-12" style="color:var(--textL);font-size:12px">* Each attempt draws random questions from a larger bank<br>* You can attempt the test as many times as you like</div>'
+    +'<div class="text-center mt-12"><a href="'+HANDBOOK_URL+'" target="_blank" rel="noopener" style="color:var(--textM);font-size:13px;font-weight:700;text-decoration:none">\ud83d\udcd6 Official Tasmanian Road Rules Handbook</a></div>'
     +'</div><div class="text-center" style="color:var(--textL);font-size:11px;margin-top:12px;line-height:1.4">Based on the official Tasmanian DKT question bank.<br>Not affiliated with the Department of State Growth or Service Tasmania.</div></div>';}
 
 function rQuiz(){
@@ -362,7 +363,7 @@ function rQuiz(){
   const motoLeft=(3+pct*88)+"%";
   app.innerHTML=
     '<div class="quiz-top-bar"><div class="quiz-top-inner">'
-    +'<img src="images/logo.png" class="quiz-top-logo" onerror="this.style.display=\'none\'">'
+    +'<img src="images/logo.png" class="quiz-top-logo" style="cursor:pointer" onclick="goHome()" onerror="this.style.display=\'none\'" title="Home">'
     +'<div class="quiz-tools"><a class="quiz-tool-btn" href="'+HANDBOOK_URL+'" target="_blank" rel="noopener">\ud83d\udcd6 Handbook</a>'
     +'<button class="quiz-tool-btn" onclick="togTheme()">'+tI()+' '+tL()+'</button>'
     +'<button class="quiz-tool-btn" onclick="goHome()">\ud83c\udfe0 Home</button>'
