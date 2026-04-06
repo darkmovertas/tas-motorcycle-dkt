@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <title>Tasmania Motorcycle Practice DKT</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%270.9em%27 font-size=%2780%27%3E%F0%9F%8F%8D%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Cg transform=%27matrix(-1,0,0,1,100,0)%27%3E%3Ctext y=%270.9em%27 font-size=%2780%27%3E%F0%9F%8F%8D%EF%B8%8F%3C/text%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -80,6 +80,12 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--bg);color:var(--
 .history-detail{font-size:12px;color:var(--textM);margin-top:4px}.history-tap{font-size:11px;color:var(--textL);margin-top:2px}
 body.dark{--bg:#0f172a;--card:#1e293b;--text:#f1f5f9;--textM:#94a3b8;--textL:#64748b;--border:#334155}
 body.dark .header{background:linear-gradient(135deg,#0f172a,#1e293b);border-bottom:1px solid #334155}
+.results-bar{background:linear-gradient(135deg,var(--skyD),var(--skyDD));padding:14px 16px;position:sticky;top:0;z-index:20;text-align:center;color:#fff}
+.results-bar-title{font-size:22px;font-weight:900;margin-bottom:2px}
+.results-bar-sub{font-size:13px;opacity:0.88;margin-bottom:10px}
+.results-bar-try{display:inline-block;background:#fff3;border:1px solid #fff5;border-radius:20px;padding:4px 14px;font-size:12px;font-weight:700;color:#fff;cursor:pointer;font-family:inherit}
+.results-bar-try:hover{background:#fff4}
+body.dark .results-bar{background:linear-gradient(135deg,#0f172a,#1e293b);border-bottom:1px solid #334155}
 .review-bar{background:var(--card);padding:6px 16px;position:sticky;top:0;z-index:20;border-bottom:1px solid var(--border)}
 .review-bar-inner{max-width:640px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:8px}
 .review-bar-title{font-weight:800;font-size:15px}
@@ -372,7 +378,12 @@ function rQuiz(){
 
 function rResults(){
   const res=getRes(S.qs,S.ans);const ap=res.every(r=>r.passed);const tot=S.qs.filter(q=>S.ans[q.id]===q.c).length;
-  app.innerHTML='<div class="header">'+hB(false)+'<h1>'+(ap?"\u2705 Test Passed!":"\u274c Not Yet")+'</h1><div class="header-sub">'+tot+' of 35 correct</div></div>'
+  app.innerHTML=
+    '<div class="results-bar">'
+    +'<div class="results-bar-title">'+(ap?"\u2705 Test Passed!":"\u274c Not Yet")+'</div>'
+    +'<div class="results-bar-sub">'+tot+' of 35 correct</div>'
+    +(ap?'':'<button class="results-bar-try" onclick="startT()">Try Again</button>')
+    +'</div>'
     +'<div class="container"><div class="card"><h3 class="mb-16" style="color:var(--textM);text-transform:uppercase;letter-spacing:1px;font-size:13px">Section Breakdown</h3>'
     +res.map(r=>'<div class="section-result '+(r.passed?"pass":"fail")+'"><div class="sr-left"><span class="sr-icon">'+(r.passed?"\u2705":"\u274c")+'</span><div><div class="sr-name">'+r.name+'</div><div class="sr-need">Need '+r.req+' of '+r.tot+'</div></div></div><div class="sr-score" style="color:'+(r.passed?"var(--green)":"var(--red)")+'">'+r.correct+'/'+r.tot+'</div></div>').join("")
     +'<div class="nav-btns mt-20"><button class="btn btn-outline" onclick="showRev()">Review Answers</button><button class="btn btn-primary" onclick="startT()">New Test</button></div>'
@@ -395,7 +406,7 @@ function rReview(){
     +'<a class="quiz-tool-btn" href="'+HANDBOOK_URL+'" target="_blank" rel="noopener">\ud83d\udcd6 Handbook</a>'
     +'<button class="quiz-tool-btn" onclick="togTheme()">'+tI()+' '+tL()+'</button>'
     +'</div></div></div>'
-    +'<div class="container" style="padding-top:8px"><div style="color:var(--textM);font-size:13px;padding:4px 0 12px">Tap a question to expand the answer</div>'
+    +'<div class="container" style="padding-top:4px"><div style="color:var(--textM);font-size:13px;padding:6px 0 6px">Tap a question to expand the answer</div>'
     +'<div class="card" style="padding:12px">'+bRI(S.qs,S.ans)+'</div></div>'
     +'<div class="quiz-nav-fixed"><div class="quiz-nav-inner">'
     +'<div class="nav-btns"><button class="btn btn-outline" onclick="S.scr=\'results\';render()">Back to Results</button><button class="btn btn-primary" onclick="startT()">New Test</button></div>'
@@ -421,7 +432,7 @@ function rHistDetail(){
 function startT(){clearProg();S.qs=genTest();S.cur=0;S.ans={};S.fb=false;S.scr="quiz";render();}
 function resume(){const p=loadProg();if(p){S.qs=p.qs;S.cur=p.cur;S.ans=p.ans;S.fb=false;S.scr="quiz";render();}}
 function sel(i){if(S.fb)return;S.ans[S.qs[S.cur].id]=i;render();}
-function conf(){if(S.ans[S.qs[S.cur].id]===undefined)return;S.fb=true;saveProg();render();setTimeout(()=>{const fb=document.querySelector('.feedback');if(fb)fb.scrollIntoView({behavior:'smooth',block:'nearest'});},50);}
+function conf(){if(S.ans[S.qs[S.cur].id]===undefined)return;S.fb=true;saveProg();render();setTimeout(()=>{const fb=document.querySelector('.feedback');const nav=document.querySelector('.quiz-nav-fixed');const bar=document.querySelector('.quiz-bar');if(!fb)return;const fbR=fb.getBoundingClientRect();const navTop=nav?nav.getBoundingClientRect().top:window.innerHeight;const barBottom=bar?bar.getBoundingClientRect().bottom:0;if(fbR.bottom>navTop-8){window.scrollBy({top:fbR.bottom-(navTop-8),behavior:'smooth'});}else if(fbR.top<barBottom+8){window.scrollBy({top:fbR.top-barBottom-8,behavior:'smooth'});}},80);}
 function next(){S.fb=false;if(S.cur<S.qs.length-1){S.cur++;saveProg();render();const tb=document.querySelector('.quiz-top-bar');if(tb)window.scrollTo({top:tb.offsetHeight,behavior:'smooth'});}else{clearProg();saveHist(S.qs,S.ans);S.scr="results";render();}}
 function prev(){if(S.cur>0){S.cur--;S.fb=S.ans[S.qs[S.cur].id]!==undefined;render();}}
 function goHome(){if(confirm("Leave test? Your progress will be saved so you can pick up where you left off.")){saveProg();S.scr="welcome";render();}}
