@@ -29,7 +29,7 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--bg);color:var(--
 .pass-label{font-weight:600;font-size:15px;display:flex;align-items:center}.pass-val{font-weight:700;color:var(--textM);font-size:14px}
 .quiz-top-bar{background:var(--card);border-bottom:1px solid var(--border);padding:8px 16px}
 .quiz-top-inner{max-width:640px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:8px}
-.quiz-top-logo{max-height:36px;max-width:150px;display:block}
+.quiz-top-logo{max-height:54px;max-width:220px;display:block}
 .quiz-bar{background:var(--card);padding:2px 16px 0;position:sticky;top:0;z-index:20;border-bottom:1px solid var(--border)}
 .quiz-bar-inner{max-width:640px;margin:0 auto}
 .quiz-bar hr{border:none;border-top:1px solid var(--border);margin:4px 0}
@@ -42,13 +42,13 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--bg);color:var(--
 .quiz-nav-inner{max-width:640px;margin:0 auto}
 .moto-hr-wrap{position:relative;height:30px;margin:2px 0 6px}
 .moto-line{position:absolute;top:50%;left:0;right:0;border:none;border-top:2px solid var(--border);margin:0}
-.moto-emoji{position:absolute;top:50%;transform:translateY(-50%) scaleX(-1);font-size:20px;transition:left 0.5s ease-out}
+.moto-emoji{position:absolute;top:50%;transform:translateY(-62%) scaleX(-1);font-size:20px;transition:left 0.5s ease-out}
 .progress{height:6px;background:var(--border);border-radius:3px;overflow:hidden;max-width:640px;margin:0 auto}
 .progress-fill{height:100%;background:linear-gradient(90deg,var(--teal),var(--tealL));border-radius:3px;transition:width 0.4s ease}
 .q-num{width:38px;height:38px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:800;flex-shrink:0;color:#fff}
 .q-head{display:flex;gap:12px;align-items:flex-start;margin-bottom:16px}.q-text{font-size:18px;font-weight:700;line-height:1.4}
-.q-img-wrap{background:#e8f5e9;border-radius:8px;overflow:hidden;margin-bottom:16px;text-align:center;min-height:60px;display:flex;align-items:center;justify-content:center}
-.q-img-wrap img{max-width:100%;height:auto;display:block}.q-img-fallback{padding:16px;color:var(--textL);font-size:13px;font-style:italic}
+.q-img-wrap{background:#e8f5e9;border-radius:8px;overflow:hidden;margin-bottom:16px;text-align:center;min-height:60px;max-height:280px;display:flex;align-items:center;justify-content:center}
+.q-img-wrap img{max-width:100%;max-height:280px;height:auto;object-fit:contain;display:block}.q-img-fallback{padding:16px;color:var(--textL);font-size:13px;font-style:italic}
 .opt{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;border:2px solid var(--border);border-radius:var(--radius);margin-bottom:8px;cursor:pointer;transition:all 0.15s;background:var(--card)}
 .opt:hover{border-color:var(--textL)}.opt.selected{border-color:var(--teal);background:#f0fdfa}
 .opt.correct,.opt.show-correct{border-color:var(--green);background:#ecfdf5}.opt.wrong{border-color:var(--red);background:#fef2f2}
@@ -80,6 +80,11 @@ body{font-family:'Nunito',system-ui,sans-serif;background:var(--bg);color:var(--
 .history-detail{font-size:12px;color:var(--textM);margin-top:4px}.history-tap{font-size:11px;color:var(--textL);margin-top:2px}
 body.dark{--bg:#0f172a;--card:#1e293b;--text:#f1f5f9;--textM:#94a3b8;--textL:#64748b;--border:#334155}
 body.dark .header{background:linear-gradient(135deg,#0f172a,#1e293b);border-bottom:1px solid #334155}
+.review-bar{background:var(--card);padding:6px 16px;position:sticky;top:0;z-index:20;border-bottom:1px solid var(--border)}
+.review-bar-inner{max-width:640px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.review-bar-title{font-weight:800;font-size:15px}
+.review-bar-tools{display:flex;gap:6px;align-items:center}
+body.dark .review-bar{border-bottom-color:#334155}
 .quiz-nav-fixed .nav-btns{margin-top:0}
 body.dark .quiz-top-bar{border-bottom-color:#334155}
 body.dark .quiz-bar{border-bottom-color:#334155}
@@ -90,7 +95,6 @@ body.dark .moto-line{border-top-color:#334155}
 @media(min-width:500px){.q-text{font-size:20px}.opt-text{font-size:16px}}
 @media(min-width:768px){
   .quiz-section{font-size:16px}.quiz-total{font-size:15px}
-  .footer-moto{font-size:32px;left:10%}
 }
 </style>
 </head>
@@ -384,11 +388,19 @@ function bRI(qs,ans){
     return '<div class="review-item" id="rv'+i+'"><div class="review-header" onclick="togRev('+i+')"><span class="review-num">'+(i+1)+'</span><span class="review-q">'+q.q+'</span><span class="review-icon">'+(ic?"\u2705":"\u274c")+'<span class="review-chevron">\u25bc</span></span></div><div class="review-body">'+body+'</div></div>';}).join("");}
 
 function rReview(){
-  app.innerHTML='<div class="header"><h1>Review Test</h1><div class="header-sub">Tap a question to expand the answer</div>'
-    +'<div style="margin-top:10px"><a class="header-btn" href="'+HANDBOOK_URL+'" target="_blank" rel="noopener">\ud83d\udcd6 Road Rules Handbook</a></div></div>'
-    +'<div class="container"><div class="card" style="padding:12px">'+bRI(S.qs,S.ans)+'</div>'
-    +'<div class="nav-btns mt-12"><button class="btn btn-outline" onclick="S.scr=\'results\';render()">Back to Results</button><button class="btn btn-primary" onclick="startT()">New Test</button></div>'
-    +'<div class="mt-12"><button class="btn btn-outline" onclick="S.scr=\'welcome\';render()">\ud83c\udfe0 Home</button></div></div>';}
+  app.innerHTML=
+    '<div class="review-bar"><div class="review-bar-inner">'
+    +'<span class="review-bar-title">Review Test</span>'
+    +'<div class="review-bar-tools">'
+    +'<a class="quiz-tool-btn" href="'+HANDBOOK_URL+'" target="_blank" rel="noopener">\ud83d\udcd6 Handbook</a>'
+    +'<button class="quiz-tool-btn" onclick="togTheme()">'+tI()+' '+tL()+'</button>'
+    +'</div></div></div>'
+    +'<div class="container" style="padding-top:8px"><div style="color:var(--textM);font-size:13px;padding:4px 0 12px">Tap a question to expand the answer</div>'
+    +'<div class="card" style="padding:12px">'+bRI(S.qs,S.ans)+'</div></div>'
+    +'<div class="quiz-nav-fixed"><div class="quiz-nav-inner">'
+    +'<div class="nav-btns"><button class="btn btn-outline" onclick="S.scr=\'results\';render()">Back to Results</button><button class="btn btn-primary" onclick="startT()">New Test</button></div>'
+    +'<div class="mt-12"><button class="btn btn-outline" style="width:100%" onclick="S.scr=\'welcome\';render()">\ud83c\udfe0 Home</button></div>'
+    +'</div></div>';}
 
 function rHistory(){
   const h=JSON.parse(localStorage.getItem("dkt-history")||"[]");
@@ -409,7 +421,7 @@ function rHistDetail(){
 function startT(){clearProg();S.qs=genTest();S.cur=0;S.ans={};S.fb=false;S.scr="quiz";render();}
 function resume(){const p=loadProg();if(p){S.qs=p.qs;S.cur=p.cur;S.ans=p.ans;S.fb=false;S.scr="quiz";render();}}
 function sel(i){if(S.fb)return;S.ans[S.qs[S.cur].id]=i;render();}
-function conf(){if(S.ans[S.qs[S.cur].id]===undefined)return;S.fb=true;saveProg();render();}
+function conf(){if(S.ans[S.qs[S.cur].id]===undefined)return;S.fb=true;saveProg();render();const fb=document.querySelector('.feedback');if(fb)fb.scrollIntoView({behavior:'smooth',block:'nearest'});}
 function next(){S.fb=false;if(S.cur<S.qs.length-1){S.cur++;saveProg();render();const tb=document.querySelector('.quiz-top-bar');if(tb)window.scrollTo({top:tb.offsetHeight,behavior:'smooth'});}else{clearProg();saveHist(S.qs,S.ans);S.scr="results";render();}}
 function prev(){if(S.cur>0){S.cur--;S.fb=S.ans[S.qs[S.cur].id]!==undefined;render();}}
 function goHome(){if(confirm("Leave test? Your progress will be saved so you can pick up where you left off.")){saveProg();S.scr="welcome";render();}}
