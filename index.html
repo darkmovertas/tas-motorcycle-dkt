@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <title>Tasmania Motorcycle Practice DKT</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Cg transform=%27matrix(-1,0,0,1,100,0)%27%3E%3Ctext y=%270.9em%27 font-size=%2780%27%3E%F0%9F%8F%8D%EF%B8%8F%3C/text%3E%3C/g%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext transform=%27translate(100,0) scale(-1,1)%27 y=%270.9em%27 font-size=%2780%27%3E%F0%9F%8F%8D%EF%B8%8F%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -378,11 +378,12 @@ function rQuiz(){
 
 function rResults(){
   const res=getRes(S.qs,S.ans);const ap=res.every(r=>r.passed);const tot=S.qs.filter(q=>S.ans[q.id]===q.c).length;
+  const msg=ap?"You would have passed the real test. Well done!":"Keep practising -- you'll get there!";
   app.innerHTML=
     '<div class="results-bar">'
     +'<div class="results-bar-title">'+(ap?"\u2705 Test Passed!":"\u274c Not Yet")+'</div>'
-    +'<div class="results-bar-sub">'+tot+' of 35 correct</div>'
-    +(ap?'':'<button class="results-bar-try" onclick="startT()">Try Again</button>')
+    +'<div class="results-bar-sub">'+tot+' of 35 correct &nbsp;|&nbsp; '+msg+'</div>'
+    +'<button class="results-bar-try" onclick="startT()">'+(ap?"Try Again?":"Try Again")+'</button>'
     +'</div>'
     +'<div class="container"><div class="card"><h3 class="mb-16" style="color:var(--textM);text-transform:uppercase;letter-spacing:1px;font-size:13px">Section Breakdown</h3>'
     +res.map(r=>'<div class="section-result '+(r.passed?"pass":"fail")+'"><div class="sr-left"><span class="sr-icon">'+(r.passed?"\u2705":"\u274c")+'</span><div><div class="sr-name">'+r.name+'</div><div class="sr-need">Need '+r.req+' of '+r.tot+'</div></div></div><div class="sr-score" style="color:'+(r.passed?"var(--green)":"var(--red)")+'">'+r.correct+'/'+r.tot+'</div></div>').join("")
@@ -400,14 +401,16 @@ function bRI(qs,ans){
 
 function rReview(){
   app.innerHTML=
-    '<div class="review-bar"><div class="review-bar-inner">'
+    '<div class="review-bar"><div class="review-bar-inner" style="flex-direction:column;align-items:flex-start;gap:2px">'
+    +'<div style="width:100%;display:flex;justify-content:space-between;align-items:center">'
     +'<span class="review-bar-title">Review Test</span>'
     +'<div class="review-bar-tools">'
     +'<a class="quiz-tool-btn" href="'+HANDBOOK_URL+'" target="_blank" rel="noopener">\ud83d\udcd6 Handbook</a>'
     +'<button class="quiz-tool-btn" onclick="togTheme()">'+tI()+' '+tL()+'</button>'
-    +'</div></div></div>'
-    +'<div class="container" style="padding-top:4px"><div style="color:var(--textM);font-size:13px;padding:6px 0 6px">Tap a question to expand the answer</div>'
-    +'<div class="card" style="padding:12px">'+bRI(S.qs,S.ans)+'</div></div>'
+    +'</div></div>'
+    +'<div style="font-size:12px;color:var(--textM)">Tap a question to expand the answer</div>'
+    +'</div></div>'
+    +'<div class="container"><div class="card" style="padding:12px">'+bRI(S.qs,S.ans)+'</div></div>'
     +'<div class="quiz-nav-fixed"><div class="quiz-nav-inner">'
     +'<div class="nav-btns"><button class="btn btn-outline" onclick="S.scr=\'results\';render()">Back to Results</button><button class="btn btn-primary" onclick="startT()">New Test</button></div>'
     +'<div class="mt-12"><button class="btn btn-outline" style="width:100%" onclick="S.scr=\'welcome\';render()">\ud83c\udfe0 Home</button></div>'
@@ -432,7 +435,7 @@ function rHistDetail(){
 function startT(){clearProg();S.qs=genTest();S.cur=0;S.ans={};S.fb=false;S.scr="quiz";render();}
 function resume(){const p=loadProg();if(p){S.qs=p.qs;S.cur=p.cur;S.ans=p.ans;S.fb=false;S.scr="quiz";render();}}
 function sel(i){if(S.fb)return;S.ans[S.qs[S.cur].id]=i;render();}
-function conf(){if(S.ans[S.qs[S.cur].id]===undefined)return;S.fb=true;saveProg();render();setTimeout(()=>{const fb=document.querySelector('.feedback');const nav=document.querySelector('.quiz-nav-fixed');const bar=document.querySelector('.quiz-bar');if(!fb)return;const fbR=fb.getBoundingClientRect();const navTop=nav?nav.getBoundingClientRect().top:window.innerHeight;const barBottom=bar?bar.getBoundingClientRect().bottom:0;if(fbR.bottom>navTop-8){window.scrollBy({top:fbR.bottom-(navTop-8),behavior:'smooth'});}else if(fbR.top<barBottom+8){window.scrollBy({top:fbR.top-barBottom-8,behavior:'smooth'});}},80);}
+function conf(){if(S.ans[S.qs[S.cur].id]===undefined)return;S.fb=true;saveProg();render();setTimeout(()=>{const fb=document.querySelector('.feedback');const bar=document.querySelector('.quiz-bar');if(!fb)return;const fbTop=fb.getBoundingClientRect().top;const barBottom=bar?bar.getBoundingClientRect().bottom:0;window.scrollBy({top:fbTop-barBottom-12,behavior:'smooth'});},80);}
 function next(){S.fb=false;if(S.cur<S.qs.length-1){S.cur++;saveProg();render();const tb=document.querySelector('.quiz-top-bar');if(tb)window.scrollTo({top:tb.offsetHeight,behavior:'smooth'});}else{clearProg();saveHist(S.qs,S.ans);S.scr="results";render();}}
 function prev(){if(S.cur>0){S.cur--;S.fb=S.ans[S.qs[S.cur].id]!==undefined;render();}}
 function goHome(){if(confirm("Leave test? Your progress will be saved so you can pick up where you left off.")){saveProg();S.scr="welcome";render();}}
