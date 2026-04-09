@@ -405,7 +405,7 @@ function rQuiz(){
     fbH='<div class="feedback '+(ic?"correct":"wrong")+'">'
       +'<div class="feedback-title">'+(ic?"\u2714\uFE0F Correct!":"\u2716\uFE0F Incorrect. The answer is "+L[q.c]+".")+'</div>'
       +'<div class="feedback-exp">'+q.exp+'</div>'
-      +(q.src?'<div class="feedback-src">\uD83D\uDCDA '+q.src+'</div>':'')
+      +(q.src?'<div class="feedback-src">\uD83D\uDCDA '+q.src.replace('Tasmanian Road Rules 2022','<a href="'+HANDBOOK_URL+'" target="_blank" rel="noopener" style="color:inherit">Tasmanian Road Rules 2022</a>')+'</div>':'')
       +'</div>';}
   let navBtns="";
   if(!fb)navBtns=(S.cur>0?'<button class="btn btn-outline" onclick="prev()">Back</button>':'')+'<button class="btn btn-primary" '+(ans?"":"disabled")+' onclick="conf()">Confirm</button>';
@@ -474,7 +474,7 @@ function bRI(qs,ans){
       else if(origJ===ua&&!ic){icon="\u2716";st="color:var(--red);text-decoration:line-through;opacity:0.7"}
       return '<div style="padding:6px 0;'+st+'">'+icon+' <b>'+L[origJ]+'.</b> '+o+'</div>';}).join("")
     +'<div class="feedback '+(ic?"correct":"wrong")+'" style="margin-top:10px"><div class="feedback-exp">'+q.exp+'</div>'
-    +(q.src?'<div class="feedback-src">\uD83D\uDCDA '+q.src+'</div>':'')+'</div>';
+    +(q.src?'<div class="feedback-src">\uD83D\uDCDA '+q.src.replace('Tasmanian Road Rules 2022','<a href="'+HANDBOOK_URL+'" target="_blank" rel="noopener" style="color:inherit">Tasmanian Road Rules 2022</a>')+'</div>':'')+'</div>';
     return '<div class="review-item" id="rv'+i+'"><div class="review-header" onclick="togRev('+i+')"><span class="review-num">'+(i+1)+'</span><span class="review-q">'+q.q+'</span><span class="review-icon">'+(ic?"\u2705":"\u274C")+'<span class="review-chevron">\u25BC</span></span></div><div class="review-body">'+body+'</div></div>';}).join("");}
 
 function rReview(){
