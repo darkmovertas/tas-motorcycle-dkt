@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<title>Tasmania Motorcycle Practice DKT</title>
+<title>Mock Exam — Tasmania Motorcycle DKT</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext transform=%27translate(100,0) scale(-1,1)%27 y=%270.9em%27 font-size=%2780%27%3E%F0%9F%8F%8D%EF%B8%8F%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -336,6 +336,7 @@ function rWelcome(){
     +'<img src="images/logo.png" class="quiz-top-logo" style="cursor:pointer" onclick="window.scrollTo({top:0,behavior:\'smooth\'})" onerror="this.style.display=\'none\'" title="Tasmania Motorcycle DKT Practice">'
     +'<div class="quiz-tools">'
     +(h.length?'<button class="quiz-tool-btn" onclick="goHist()">\ud83d\udcca History</button>':'')
+    +'<a class="quiz-tool-btn" href="index.html">\ud83c\udfe0 Home</a>'
     +'<button class="quiz-tool-btn" onclick="togTheme()">'+tI()+' '+tL()+'</button>'
     +'</div></div></div>'
     +'<div class="container">'
@@ -343,7 +344,7 @@ function rWelcome(){
     +'<div style="color:var(--textM);font-size:13px;margin-top:4px">Prepare for your motorcycle knowledge test</div></div>'
     +'<div class="card">'
     +'<div class="welcome-info">There are <b>35 questions</b> in the test divided into <b>5 sections</b>. You must pass each section to achieve an overall test pass.</div>'
-    +SECS.map(s=>'<div class="pass-row"><span class="pass-label"><span class="pass-dot" style="background:'+s.color+'"></span>'+s.name+'</span><span class="pass-val">'+s.req+'/'+s.tot+' = Pass</span></div>').join("")
+    +'<div style="background:#fef3c7;border:1px solid #fcd34d;border-radius:8px;padding:12px 14px;margin-bottom:16px;font-size:13px;color:#92400e;line-height:1.5">'+'<b>⚠️ Note:</b> Questions in this mode are assigned to sections approximately and may not perfectly match the official test pools. The Motorcycle section is accurate.'+'</div>'+SECS.map(s=>'<div class="pass-row"><span class="pass-label"><span class="pass-dot" style="background:'+s.color+'"></span>'+s.name+'</span><span class="pass-val">'+s.req+'/'+s.tot+' = Pass</span></div>').join("")
     +'<div class="mt-20">'+(prog?'<button class="btn btn-primary mb-8" onclick="resume()">Continue Test</button><button class="btn btn-outline" onclick="startT()">Start New Test</button>'
     :'<button class="btn btn-primary" onclick="startT()">Start Test</button>')+'</div>'
     +'<div class="text-center mt-12" style="color:var(--textL);font-size:12px">* Each attempt draws random questions from a larger bank<br>* You can attempt the test as many times as you like</div>'
@@ -448,7 +449,7 @@ function sel(i){if(S.fb)return;S.ans[S.qs[S.cur].id]=i;render();}
 function conf(){if(S.ans[S.qs[S.cur].id]===undefined)return;S.fb=true;saveProg();render();setTimeout(()=>{const fb=document.querySelector('.feedback');const bar=document.querySelector('.quiz-bar');if(!fb)return;const fbTop=fb.getBoundingClientRect().top;const barBottom=bar?bar.getBoundingClientRect().bottom:0;window.scrollBy({top:fbTop-barBottom-12,behavior:'smooth'});},80);}
 function next(){S.fb=false;if(S.cur<S.qs.length-1){S.cur++;saveProg();render();const tb=document.querySelector('.quiz-top-bar');if(tb)window.scrollTo({top:tb.offsetHeight,behavior:'smooth'});}else{clearProg();saveHist(S.qs,S.ans);S.scr="results";render();}}
 function prev(){if(S.cur>0){S.cur--;S.fb=S.ans[S.qs[S.cur].id]!==undefined;render();}}
-function goHome(){if(confirm("Leave test? Your progress will be saved so you can pick up where you left off.")){saveProg();S.scr="welcome";render();}}
+function goHome(){if(confirm("Leave test? Your progress will be saved so you can pick up where you left off.")){saveProg();window.location.href='index.html';}}
 function showRev(){S.scr="review";render();}
 function goHist(){S.scr="history";render();}
 function viewHD(i){S.histIdx=i;S.scr="histDetail";render();}
