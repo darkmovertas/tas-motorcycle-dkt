@@ -104,6 +104,19 @@ body.dark .moto-line{border-top-color:#334155}
 @media(min-width:768px){
   .quiz-section{font-size:16px}.quiz-total{font-size:15px}
 }
+
+body.dark .opt.selected{background:#0f3d38;border-color:var(--teal)}
+body.dark .opt.selected .opt-text{color:#e2f8f5}
+body.dark .opt.correct,body.dark .opt.show-correct{background:#0a2e1a;border-color:var(--green)}
+body.dark .opt.correct .opt-text{color:#bbf7d0}
+body.dark .opt.wrong{background:#2d1111;border-color:var(--red)}
+body.dark .opt.wrong .opt-text{color:#fecaca}
+body.dark .feedback.correct{background:#0a2e1a;border-color:#166534;color:#bbf7d0}
+body.dark .feedback.wrong{background:#2d1111;border-color:#991b1b;color:#fecaca}
+body.dark .section-result.pass{background:#0a2e1a}
+body.dark .section-result.fail{background:#2d1111}
+
+.mode-strip{background:#1e3a8a;border-bottom:1px solid #1e40af;text-align:center;padding:2px 0 4px;font-size:11px;font-weight:800;color:#ffffffaa;letter-spacing:0.8px;text-transform:uppercase}
 </style>
 </head>
 <body>
@@ -371,6 +384,7 @@ function rQuiz(){
     +'<button class="quiz-tool-btn" onclick="togTheme()">'+tI()+' '+tL()+'</button>'
     +'<button class="quiz-tool-btn" onclick="goHome()">\ud83c\udfe0 Home</button>'
     +'</div></div></div>'
+    +'<div class="mode-strip">📋 Mock 35-Question Exam</div>'
     +'<div class="quiz-bar"><div class="quiz-bar-inner">'
     +'<hr><div class="quiz-bar-row">'
     +'<span class="quiz-section" style="color:'+sec.color+'">'+q.section+' ('+sI+'/'+sec.tot+')</span>'
@@ -399,7 +413,7 @@ function rResults(){
     +'<div class="container"><div class="card"><h3 class="mb-16" style="color:var(--textM);text-transform:uppercase;letter-spacing:1px;font-size:13px">Section Breakdown</h3>'
     +res.map(r=>'<div class="section-result '+(r.passed?"pass":"fail")+'"><div class="sr-left"><span class="sr-icon">'+(r.passed?"\u2705":"\u274c")+'</span><div><div class="sr-name">'+r.name+'</div><div class="sr-need">Need '+r.req+' of '+r.tot+'</div></div></div><div class="sr-score" style="color:'+(r.passed?"var(--green)":"var(--red)")+'">'+r.correct+'/'+r.tot+'</div></div>').join("")
     +'<div class="nav-btns mt-20"><button class="btn btn-outline" onclick="showRev()">Review Answers</button><button class="btn btn-primary" onclick="startT()">New Test</button></div>'
-    +'<div class="mt-12"><button class="btn btn-outline" onclick="S.scr=\'welcome\';render()">\ud83c\udfe0 Home</button></div>'
+    +'<div class="mt-12"><a class="btn btn-outline" href="index.html" style="text-decoration:none">🏠 Home</a></div>'
     +'</div></div>';}
 
 function bRI(qs,ans){
@@ -424,7 +438,7 @@ function rReview(){
     +'<div class="container"><div class="card" style="padding:12px">'+bRI(S.qs,S.ans)+'</div></div>'
     +'<div class="quiz-nav-fixed"><div class="quiz-nav-inner">'
     +'<div class="nav-btns"><button class="btn btn-outline" onclick="S.scr=\'results\';render()">Back to Results</button><button class="btn btn-primary" onclick="startT()">New Test</button></div>'
-    +'<div class="mt-12"><button class="btn btn-outline" style="width:100%" onclick="S.scr=\'welcome\';render()">\ud83c\udfe0 Home</button></div>'
+    +'<div class="mt-12"><a class="btn btn-outline" style="width:100%" href="index.html" style="text-decoration:none">🏠 Home</a></div>'
     +'</div></div>';}
 
 function rHistory(){
@@ -434,7 +448,7 @@ function rHistory(){
     +(h.length===0?'<div style="padding:24px;text-align:center;color:var(--textM)">No attempts yet. Take your first test!</div>'
     :h.map((a,i)=>'<div class="history-item" onclick="viewHD('+i+')"><div class="history-top"><div><div class="history-date">'+a.date+' '+(a.time||"")+'</div><div class="history-detail">'+a.secs.map(s=>s.n+': '+s.g+'/'+s.t).join(' | ')+'</div><div class="history-tap">Tap to review questions</div></div><div class="'+(a.passed?"history-pass":"history-fail")+'">'+a.score+'/35 '+(a.passed?"PASS":"FAIL")+'</div></div></div>').join(""))
     +'</div><div class="mt-12"><button class="btn btn-primary" onclick="S.scr=\'welcome\';render()">Back</button></div>'
-    +(h.length?'<div class="text-center mt-12"><button class="btn btn-outline btn-sm" onclick="if(confirm(\'Clear all history?\')){localStorage.removeItem(\'dkt-history\');S.scr=\'welcome\';render()}">Clear History</button></div>':'')+'</div>';}
+    +(h.length?'<div class="text-center mt-12"><button class="btn btn-outline btn-sm" onclick="if(confirm(\'Clear all history?\')){localStorage.removeItem(\'dkt-history\');window.location.href=\'index.html\'}">Clear History</button></div>':'')+'</div>';}
 
 function rHistDetail(){
   const h=JSON.parse(localStorage.getItem("dkt-history")||"[]");const a=h[S.histIdx];

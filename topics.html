@@ -112,6 +112,19 @@ body.dark .quiz-nav-fixed .nav-btns{margin-top:0}
 .mt-12{margin-top:12px}.mt-16{margin-top:16px}.mt-20{margin-top:20px}.mb-8{margin-bottom:8px}.mb-16{margin-bottom:16px}.text-center{text-align:center}
 @media(min-width:500px){.q-text{font-size:20px}.opt-text{font-size:16px}}
 @media(min-width:480px){.topic-grid{grid-template-columns:1fr 1fr 1fr}}
+
+body.dark .opt.selected{background:#0f3d38;border-color:var(--teal)}
+body.dark .opt.selected .opt-text{color:#e2f8f5}
+body.dark .opt.correct,body.dark .opt.show-correct{background:#0a2e1a;border-color:var(--green)}
+body.dark .opt.correct .opt-text{color:#bbf7d0}
+body.dark .opt.wrong{background:#2d1111;border-color:var(--red)}
+body.dark .opt.wrong .opt-text{color:#fecaca}
+body.dark .feedback.correct{background:#0a2e1a;border-color:#166534;color:#bbf7d0}
+body.dark .feedback.wrong{background:#2d1111;border-color:#991b1b;color:#fecaca}
+body.dark .section-result.pass{background:#0a2e1a}
+body.dark .section-result.fail{background:#2d1111}
+
+.mode-strip{background:#1e3a8a;border-bottom:1px solid #1e40af;text-align:center;padding:2px 0 4px;font-size:11px;font-weight:800;color:#ffffffaa;letter-spacing:0.8px;text-transform:uppercase}
 </style>
 </head>
 <body>
@@ -404,6 +417,7 @@ function rQuiz(){
     +'<button class="quiz-tool-btn" onclick="togTheme()">'+tI()+' '+tL()+'</button>'
     +'<button class="quiz-tool-btn" onclick="goHome()">\uD83C\uDFE0 Home</button>'
     +'</div></div></div>'
+    +'<div class="mode-strip">🗂️ Practice by Topic</div>'
     +'<div class="quiz-bar"><div class="quiz-bar-inner">'
     +'<hr><div class="quiz-bar-row">'
     +'<span class="quiz-section" style="color:'+sectionColor+'">'+sectionLabel+'</span>'
@@ -445,7 +459,7 @@ function rResults(){
     +(isExam?'<div style="text-align:center;padding:8px 0 4px;font-size:14px;color:var(--textM)">'+Math.round(tot/total*100)+'% correct</div>':'')
     +'<div class="nav-btns mt-20"><button class="btn btn-outline" onclick="showRev()">Review Answers</button>'
     +'<button class="btn btn-primary" onclick="startTopic(S.topicId)">Try Again</button>'+'</div>'
-    +'<div class="mt-12"><button class="btn btn-outline" style="width:100%" onclick="S.scr=\'welcome\';render()">\uD83C\uDFE0 Home</button></div>'
+    +'<div class="mt-12"><button class="btn btn-outline" style="width:100%" onclick="window.location.href=\'index.html\'">\uD83C\uDFE0 Home</button></div>'
     +'</div></div>';}
 
 function bRI(qs,ans){
@@ -477,13 +491,13 @@ function rReview(){
     +'<div class="quiz-nav-fixed"><div class="quiz-nav-inner">'
     +'<div class="nav-btns"><button class="btn btn-outline" onclick="S.scr=\'results\';render()">Back to Results</button>'
     +(S.mode==="exam"?'<a class="btn btn-primary" href="index.html">Home</a>':'<button class="btn btn-primary" onclick="startTopic(S.topicId)">Try Again</button>')+'</div>'
-    +'<div class="mt-12"><button class="btn btn-outline" style="width:100%" onclick="S.scr=\'welcome\';render()">\uD83C\uDFE0 Home</button></div>'
+    +'<div class="mt-12"><button class="btn btn-outline" style="width:100%" onclick="window.location.href=\'index.html\'">\uD83C\uDFE0 Home</button></div>'
     +'</div></div>';}
 
 function rHistory(){
   const h=JSON.parse(localStorage.getItem("dkt-history")||"[]");
   app.innerHTML='<div class="quiz-top-bar"><div class="quiz-top-inner"><span style="color:#fff;font-weight:800;font-size:15px">\uD83D\uDCCA Test History</span>'
-    +'<button class="quiz-tool-btn" onclick="S.scr=\'welcome\';render()">\uD83C\uDFE0 Home</button></div></div>'
+    +'<button class="quiz-tool-btn" onclick="window.location.href=\'index.html\'">\uD83C\uDFE0 Home</button></div></div>'
     +'<div class="container"><div class="card" style="padding:0">'
     +(h.length===0?'<div style="padding:24px;text-align:center;color:var(--textM)">No attempts yet.</div>'
     :h.map((a,i)=>{
@@ -494,7 +508,7 @@ function rHistory(){
         :'<div style="font-weight:700;color:var(--teal)">'+a.score+'/'+(a.total||"?")+'</div>')+'</div></div>';}
     ).join(""))
     +'</div>'
-    +(h.length?'<div class="text-center mt-12"><button class="btn btn-outline btn-sm" onclick="if(confirm(\'Clear all history?\')){localStorage.removeItem(\'dkt-history\');S.scr=\'welcome\';render()}">Clear History</button></div>':'')
+    +(h.length?'<div class="text-center mt-12"><button class="btn btn-outline btn-sm" onclick="if(confirm(\'Clear all history?\')){localStorage.removeItem(\'dkt-history\');window.location.href=\'index.html\'}">Clear History</button></div>':'')
     +'</div>';}
 
 function rHistDetail(){
