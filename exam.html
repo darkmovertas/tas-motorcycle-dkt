@@ -332,7 +332,7 @@ function genTest(){let r=[];SECS.forEach(s=>{shuffle(s.pool).slice(0,s.tot).forE
 function getRes(qs,ans){return SECS.map(s=>{const sq=qs.filter(q=>q.section===s.name);const c=sq.filter(q=>ans[q.id]===q.c).length;return{...s,correct:c,passed:c>=s.req};});}
 function saveHist(qs,ans){const res=getRes(qs,ans);const ap=res.every(r=>r.passed);const tot=qs.filter(q=>ans[q.id]===q.c).length;
   const h=JSON.parse(localStorage.getItem("dkt-history")||"[]");
-  h.unshift({date:new Date().toLocaleDateString("en-AU"),time:new Date().toLocaleTimeString("en-AU",{hour:"2-digit",minute:"2-digit"}),score:tot,passed:ap,secs:res.map(r=>({n:r.name,g:r.correct,t:r.tot,ok:r.passed})),qs:qs.map(q=>({id:q.id,q:q.q,opts:q.opts,c:q.c,exp:q.exp,img:q.img,section:q.section})),ans:ans});
+  h.unshift({date:new Date().toLocaleDateString("en-AU"),time:new Date().toLocaleTimeString("en-AU",{hour:"2-digit",minute:"2-digit"}),score:tot,passed:ap,secs:res.map(r=>({n:r.name,g:r.correct,t:r.tot,ok:r.passed})),qs:qs.map(q=>({id:q.id,q:q.q,opts:q.opts,c:q.c,exp:q.exp,src:q.src,img:q.img,section:q.section})),ans:ans});
   if(h.length>20)h.pop();localStorage.setItem("dkt-history",JSON.stringify(h));}
 function saveProg(){localStorage.setItem("dkt-progress",JSON.stringify({qs:S.qs,cur:S.cur,ans:S.ans}));}
 function loadProg(){try{return JSON.parse(localStorage.getItem("dkt-progress"));}catch{return null;}}
@@ -380,7 +380,7 @@ function rQuiz(){
   let img="";if(q.img)img='<div class="q-img-wrap"><img src="'+imgP(q.img)+'" alt="Diagram" onerror="this.parentElement.innerHTML=\'<div class=q-img-fallback>Image: q'+q.img+'.png not yet added</div>\'"></div>';
   let opts=q.opts.map((o,i)=>{let c="opt";if(fb){if(i===q.c)c+=" correct show-correct";else if(S.ans[q.id]===i&&i!==q.c)c+=" wrong";}else if(S.ans[q.id]===i)c+=" selected";
     return '<div class="'+c+'" onclick="sel('+i+')"><div class="opt-radio"></div><div class="opt-letter">'+L[i]+'.</div><div class="opt-text">'+o+'</div></div>';}).join("");
-  let fbH="";if(fb){const ic=S.ans[q.id]===q.c;fbH='<div class="feedback '+(ic?"correct":"wrong")+'"><div class="feedback-title">'+(ic?"\u2714\ufe0f Correct!":"\u2716\ufe0f Incorrect. The answer is "+L[q.c]+".")+'</div><div class="feedback-exp">'+q.exp+'</div></div>';}
+  let fbH="";if(fb){const ic=S.ans[q.id]===q.c;fbH='<div class="feedback '+(ic?"correct":"wrong")+'"><div class="feedback-title">'+(ic?"\u2714\ufe0f Correct!":"\u2716\ufe0f Incorrect. The answer is "+L[q.c]+".")+'</div><div class="feedback-exp">'+q.exp+'</div>'+(q.src?'<div class="feedback-src">\ud83d\udcda '+q.src.replace('Tasmanian Road Rules 2022','<a href="https://www.transport.tas.gov.au/__data/assets/pdf_file/0006/358278/413398_-_Tasmanian_Road_Rules_2022.pdf" target="_blank" rel="noopener" style="color:inherit">Tasmanian Road Rules 2022</a>')+'</div>':'')+'</div>';}
   let navBtns="";
   if(!fb)navBtns=(S.cur>0?'<button class="btn btn-outline" onclick="prev()">Back</button>':'')+'<button class="btn btn-primary" '+(ans?"":"disabled")+' onclick="conf()">Confirm</button>';
   else navBtns='<button class="btn btn-primary" onclick="next()">'+(S.cur<S.qs.length-1?"Next":"See Results")+'</button>';
@@ -430,7 +430,7 @@ function bRI(qs,ans){
     let body="";if(q.img)body+='<div class="q-img-wrap mb-8"><img src="'+imgP(q.img)+'" alt="" onerror="this.parentElement.style.display=\'none\'"></div>';
     body+=q.opts.map((o,j)=>{let icon="\u25cb",st="color:var(--textM)";if(j===q.c){icon="\u2714";st="color:var(--green);font-weight:700"}else if(j===ua&&!ic){icon="\u2716";st="color:var(--red);text-decoration:line-through;opacity:0.7"}
       return '<div style="padding:6px 0;'+st+'">'+icon+' <b>'+L[j]+'.</b> '+o+'</div>';}).join("")
-      +'<div class="feedback '+(ic?"correct":"wrong")+'" style="margin-top:10px"><div class="feedback-exp">'+q.exp+'</div></div>';
+      +'<div class="feedback '+(ic?"correct":"wrong")+'" style="margin-top:10px"><div class="feedback-exp">'+q.exp+'</div>'+(q.src?'<div class="feedback-src">\ud83d\udcda '+q.src.replace('Tasmanian Road Rules 2022','<a href="https://www.transport.tas.gov.au/__data/assets/pdf_file/0006/358278/413398_-_Tasmanian_Road_Rules_2022.pdf" target="_blank" rel="noopener" style="color:inherit">Tasmanian Road Rules 2022</a>')+'</div>':'')+'</div>';
     return '<div class="review-item" id="rv'+i+'"><div class="review-header" onclick="togRev('+i+')"><span class="review-num">'+(i+1)+'</span><span class="review-q">'+q.q+'</span><span class="review-icon">'+(ic?"\u2705":"\u274c")+'<span class="review-chevron">\u25bc</span></span></div><div class="review-body">'+body+'</div></div>';}).join("");}
 
 function rReview(){
